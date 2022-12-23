@@ -1,0 +1,113 @@
+/*****************************
+Components - Table
+*****************************/
+
+table {
+    width: 100%;
+}
+
+.table-responsive{
+    position: relative;
+    z-index: 1;
+}
+
+.view{color: $themeColor;}
+
+.table_desc {
+    border: 1px solid $borderColor;
+}
+
+.table_page table thead tr:last-child th, 
+.table_desc table tbody tr td:last-child {
+    border-right: 0;
+}
+
+.table-responsive table thead {
+    background: #f2f2f2;
+}
+
+ .table_page table thead tr th {
+    color: $headingColor;
+    border-bottom: 3px solid $themeColor;
+    border-right: 1px solid $borderColor;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 10px;
+    text-align: center;
+}
+
+ .table_page table tbody tr td {
+    border-bottom: 1px solid $borderColor;
+    border-right: 1px solid $borderColor;
+    text-align: center;
+    padding: 10px;
+}
+
+.table-responsive table tbody tr td {
+    border-right: 1px solid $borderColor;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 14px;
+    text-align: center;
+    min-width: 150px;
+}
+.table_page table tbody tr td{
+    &.product_remove {
+        min-width: 100px;
+        font-size: 20px;
+    }
+    &.product_thumb {
+        max-width: 180px;
+        overflow: hidden;
+        img{
+            width: 92px;
+            height: 92px;
+            object-fit: cover;
+        }
+    }
+    &.product_name {
+        min-width: 180px;
+    }
+    &.product-price {
+        min-width: 130px;
+        color: #333;
+        font-size: 16px;
+        font-weight: 500;
+    }
+
+    &.product_quantity {
+        min-width: 180px;
+        label{
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        input {
+            width: 60px;
+            height: 40px;
+            padding: 0 5px 0 10px;
+            background: none;
+            border: 1px solid $borderColor;
+        }
+    }
+
+    &.product_addcart {
+        min-width: 180px;
+        a {
+            background: $themeColor;
+            font-size: 12px;
+            font-weight: 700;
+            height: 38px;
+            line-height: 18px;
+            padding: 10px 20px;
+            color: $white;
+            text-transform: uppercase;
+            border-radius: 3px;
+
+            &:hover{
+                background: #333;
+            }
+        }
+    }
+    
+}

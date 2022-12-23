@@ -1,0 +1,163 @@
+{% load static %}
+
+<footer class="footer-section section-top-gap-100">
+     <!-- Start Footer Top Area -->
+        <div class="footer-top section-inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="footer-widget footer-widget-contact" data-aos="fade-up"  data-aos-delay="0">
+                            <div class="footer-logo">
+                                <a href="/"><img style="height: auto; width: 100px;" src="https://cdn.jsdelivr.net/gh/DonGuillotine/aments/assets/images/icon/web_name.PNG" alt="" class="img-fluid"></a>
+                            </div>
+                            <div class="footer-contact">
+                                <p>A201B / 283 AGBO EDO MARKET, NKWO NNEWI ANAMBRA STATE NIGERIA. Dapperautoparts.com is registered under CAC; BN005878</p>
+                                <div class="customer-support">
+                                    <div class="customer-support-icon">
+                                        <img src="https://cdn.jsdelivr.net/gh/DonGuillotine/aments/assets/images/icon/support-icon.png" alt="">
+                                    </div>
+                                    <div class="customer-support-text">
+                                        <span>Customer Support</span>
+                                        <a class="customer-support-text-phone" href="tel:(+234)7026374012">(+234)7026374012</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        <div class="footer-widget footer-widget-menu" data-aos="fade-up"  data-aos-delay="600">
+                            <h3 class="footer-widget-title">Information</h3>
+                            <div class="footer-menu">
+                                <ul class="footer-menu-nav">
+                                    <li><a href="/store">Store</a></li>
+                                    <li><a href="/store/terms">Terms and Conditions</a></li>
+
+                             {% if user.id is None %}
+                                <li style="display: none !important" class="has-user-dropdown">
+                                    <a href="/">Manga</a>
+                                </li>
+                             {% else %}
+                                <li><a href="{%url 'dashboard'%}">My Account</a></li>
+                             {% endif %}
+
+                                </ul>
+                                <ul class="footer-menu-nav">
+                                        {% if user.id is None %}
+                                            <li><a href="{% url 'login' %}">Sign in</a></li>
+                                            <li><a href="{% url 'register' %}">Register</a></li>
+                                        {% else %}
+                                            <li><a href="{% url 'logout' %}"><i class="pe-7s pe-7s-power"></i> Logout</a></li>
+                                        {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Footer Top Area -->
+  <!-- Start Footer Bottom Area -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="copyright-area">
+                            <p class="copyright-area-text">Copyright &copy; 2022 <a class="copyright-link" href="https://dapperautoparts.com/">dapperautoparts.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer-payment">
+                            <a href=""><img class="img-fluid" src="{% static 'images/icons/payment.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Footer Bottom Area -->
+</footer>
+
+
+ <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <script src="{% static 'js/vendorx.min.js' %}"></script>
+    <script src="{% static 'js/pluginsx.min.js' %}"></script>
+
+    <!-- Main JS -->
+    <script src="{% static 'js/mainx.js' %}"></script>
+
+
+
+
+    <!--Plugins JS-->
+    <script src="{% static 'js/plugins/swiper-bundle.min.js' %}"></script>
+
+    <script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+    </script>
+<script>
+;(function($){
+	$('#selection').change(function(){
+		var getValue = $(this).val();
+		window.open(getValue, '_self');
+	})
+}(jQuery));
+</script>
+
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <!-- <script src="assets/js/vendor/vendor.min.js"></script>
+    <script src="assets/js/plugins/plugins.min.js"></script> -->
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.all.min.js"></script>
+{% for message in messages %}
+<script>
+Swal.fire(
+  '{{ message }}',
+  '',
+  '{{ message.tags }}'
+)
+</script>
+ {% endfor %}
+
+
+
+{% for cart_item in cart_items %}
+<script>
+document.getElementById('{{forloop.counter}}').onclick = function(){
+    const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'Are you sure you want to remove {{cart_item.product.product_name}}',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: '<a href="{% url 'delete_cart' cart_item.product.id cart_item.id %}">Yes, remove it!</a>',
+  cancelButtonText: 'No, cancel!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    swalWithBootstrapButtons.fire(
+      'Deleted!',
+      'Your {{cart_item.product.product_name}} has been removed from the cart.',
+      'success'
+    )
+  } else if (
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelled',
+      'Your item is safe :)',
+      'error'
+    )
+  }
+})
+};
+</script>
+ {% endfor %}
+</body>
+
+</html>

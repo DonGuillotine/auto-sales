@@ -1,0 +1,98 @@
+{% extends 'base_two.html' %}
+{% block content %}
+{% load static %}
+
+  <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between justify-content-md-between  align-items-center flex-md-row flex-column">
+                        <h3 class="breadcrumb-title">Edit Profile</h3>
+                        <div class="breadcrumb-nav">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li class="active" aria-current="page">Edit Profile</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+
+
+    <!-- ...:::: Start Account Dashboard Section:::... -->
+    <div class="account_dashboard">
+        <div class="container">
+            <div class="row">
+                {% include 'includes/dashboard_sidebar.html' %}
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <!-- Tab panes -->
+                    <div class="dashboard_content" data-aos="fade-up"  data-aos-delay="200">
+                        <div class="tab-pane" id="account-details">
+                            <h3>Account details </h3>
+                             <div style="text-align: center"><img class="mb-50 mt-5" style="border-radius:10%; height:150px" src="{{userprofile.profile_picture.url}}" alt="Profile Image"></div>
+                            <div class="login">
+                                <div class="login_form_container">
+                                    <div class="account_login_form">
+                                        <form action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
+                                             {% csrf_token %}
+                                            <div class="default-form-box mb-20">
+                                                <label>First Name</label>
+                                                {{user_form.first_name}}
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>Last Name</label>
+                                                {{user_form.last_name}}
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>Phone number</label>
+                                                {{user_form.phone_number}}
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>Address Line 1</label>
+                                                {{profile_form.address_line_1}}
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>Address Line 2</label>
+                                                {{profile_form.address_line_2}}
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>City</label>
+                                                {{profile_form.city}}
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>State</label>
+                                                {{profile_form.state}}
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>Country</label>
+                                                {{profile_form.country}}
+                                            </div>
+                                            <div class="default-form-box mb-20">
+                                                <label>Profile Picture</label>
+                                                {{profile_form.profile_picture}}
+                                            </div>
+
+                                            <div class="save_button primary_btn default_button">
+                                                <button type="submit">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Account Dashboard Section:::... -->
+
+
+
+
+{% endblock %}

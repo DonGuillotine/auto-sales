@@ -1,0 +1,89 @@
+/*===================================
+    - Breadvrumb  
+=================================*/
+
+.breadcrumb-area {
+    background-image: url(../images/about-image/intro-bg.jpg);
+    background-color: #fcf6f6;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-bottom-width: 0px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    line-height: 1;
+    @media #{$large-mobile, $tablet-device, $desktop-device} {
+        height: 300px;
+    }
+    @media #{$small-mobile} {
+        height: 260px;
+    }
+    & .breadcrumb-title {
+        font-weight: 400;
+        text-transform: capitalize;
+        font-size: 60px;
+        color: #4a4a4a;
+        margin: 0;
+		@media #{$large-mobile} {
+			font-size: 36px;
+		}
+    }
+}
+
+.breadcrumb-list {
+    & li {
+        display: inline-block;
+        font-size: 18px;
+        font-weight: 500;
+        text-transform: capitalize;
+        margin-top: 14px;
+        a{
+            color: #4a4a4a;
+            &:hover{
+                color: $theme-color;
+            }
+        }
+        &.active {
+            color: $theme-color;
+        }
+    }
+}
+
+.breadcrumb-item + .breadcrumb-item{
+    padding-left: 5px;
+    &::before {
+        display: inline-block;
+        padding-right: 10px;
+        color: $theme-color;
+        content: "//";
+      }
+}
+
+.page-pagination {
+    & li {
+        display: inline-block;
+        & a {
+            font-weight: 500;
+            padding: 0 10px;
+            display: block;
+            text-align: center;
+            line-height: 41px;
+            min-width: 41px;
+            height: 41px;
+            text-transform: uppercase;
+            color: #ababab;
+            letter-spacing: 2px;
+            border-radius: 5px;
+            &.current {
+                background: #f6f5f9;
+                color: $theme-color;
+            }
+            &:hover {
+                color: $theme-color;
+            }
+        }
+    }
+}

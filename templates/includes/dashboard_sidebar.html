@@ -1,0 +1,17 @@
+ <div class="col-sm-12 col-md-3 col-lg-3">
+    <!-- Nav tabs -->
+    <div class="dashboard_tab_button" data-aos="fade-up"  data-aos-delay="0">
+        <ul role="tablist" class="nav flex-column dashboard-list">
+            {% with url_name=request.resolver_match.url_name %}
+            <li><a href="{% url 'dashboard' %}" class="nav-link {% if url_name == 'dashboard' %}active{% endif %}">Dashboard</a></li>
+            <li> <a href="{% url 'my_orders' %}" class="nav-link {% if url_name == 'my_orders' %}active{% endif %}">Orders</a></li>
+            <li><a href="{% url 'edit_profile' %}" class="nav-link {% if url_name == 'edit_profile' %}active{% endif %}">Edit Profile</a></li>
+            <li><a href="{% url 'change_password' %}" class="nav-link {% if url_name == 'change_password' %}active{% endif %}">Change Password</a></li>
+            <li><a href="{% url 'logout' %}" class="nav-link">logout</a></li>
+            {% endwith %}
+        </ul>
+    </div>
+</div>
+
+
+

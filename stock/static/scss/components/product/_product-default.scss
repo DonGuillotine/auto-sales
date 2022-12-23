@@ -1,0 +1,91 @@
+/*Product Default CSS*/
+.product-default-single{
+    padding: 0 30px 30px 30px;
+}
+
+.product-default-content {
+    border-top: 2px solid $borderColor;
+    padding-top: 25px;
+}
+
+.product-default-img {
+    display: block;
+    min-height: 273px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product-default-link a{
+    display: block;
+    color: $black;
+    margin-bottom: 15px;
+    line-height: 1.625;
+    font-size: 16px;
+
+    &:hover{
+        color: $themeColor;
+    }
+}
+
+.product-default-price {
+    display: block;
+    color: $themeColor;
+    font-size: 16px;
+}
+
+.product-default-price-off {
+    color: #8a8a8a;
+}
+
+.product-img-warp {
+    position: relative;
+}
+
+.product-action-icon-link {
+    position: absolute;
+    top: 20px;
+    right: -10px;
+    
+
+   li {
+        margin-bottom: 10px;
+        display: block;
+        visibility: hidden;
+        opacity: 0;
+        transition: $baseTransition;
+        transform: scale(.6);
+        backface-visibility: hidden;
+        &:last-child{margin-bottom: 0;}
+
+        
+    }
+
+    li a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        line-height: 40px;
+        text-align: center;
+        border: 2px solid $borderColor;
+        display: block;
+        background: $white;
+
+
+    }
+}
+
+.product-default-single:hover .product-action-icon-link li{
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+    &:nth-child(1){transition-delay: .0s;}
+    &:nth-child(2){transition-delay: .1s;}
+    &:nth-child(3){transition-delay: .2s;}
+    &:nth-child(4){transition-delay: .3s;}
+}
+
+.product-action-icon-link li a:hover{
+    background: $themeColor;
+    border-color: $themeColor;
+    color: $white;
+}

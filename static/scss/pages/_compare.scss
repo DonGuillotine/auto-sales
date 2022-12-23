@@ -1,0 +1,110 @@
+/*****************************
+Pages - Compare
+*****************************/
+
+.compare-table .table tbody tr td.first-column {
+    min-width: 180px;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1;
+}
+
+.compare-table .table tbody tr td {
+    text-align: center;
+    border: none;
+    padding: 25px 30px;
+    vertical-align: middle;
+    border-bottom: 1px solid $borderColor;
+    border-left: 1px solid $borderColor;
+
+    &.product-image-title {
+        min-width: 305px;
+        vertical-align: bottom;
+
+        .image {
+            clear: both;
+            width: 100%;
+            margin-bottom: 40px;
+            img {
+                max-width: 100%;
+            }
+        }
+    }
+
+    &.product-image-title {
+        .category {
+            clear: both;
+            color: #333;
+            float: left;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            line-height: 15px;
+            margin-bottom: 7px;
+            margin-top: 15px;
+            text-transform: capitalize;
+        }
+
+        .title {
+            float: left;
+            clear: both;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 20px;
+            margin-bottom: 10px;
+        }
+
+    }
+
+    &.pro-desc p {
+        text-align: left;
+        margin: 0;
+    }
+
+    &.pro-price {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    &.pro-color {
+        font-size: 15px;
+        font-weight: 600;
+    }
+
+    &.pro-addtocart .add-to-cart {
+        position: relative;
+        background: $themeColor;
+        border-radius: 4px;
+        display: inline-block;
+        width: 170px;
+        padding: 10px 6px;
+        transition: all 0.7s;
+        color: $white;
+        &:hover{
+            background: #333;
+        }
+
+        span {
+            transition: .3s;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 700;
+            line-height: 21px;
+            overflow: hidden;
+            display: block;
+            text-align: center;
+        }
+
+        &.pro-stock {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .pro-remove button {
+            border: none;
+            background-color: transparent;
+            padding: 0;
+        }
+    }
+    
+}

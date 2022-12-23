@@ -1,0 +1,66 @@
+/*****************************
+Pages - FAQ
+*****************************/
+.faq-content{
+    h5{
+        margin-bottom: 16px
+    }
+}
+.faq-accordian {
+    width: 100%;
+    margin: 40px auto 30px auto;
+    text-align: left;
+    margin-bottom: -15px;
+ }
+
+.faq-accordian-single-item{
+    margin-bottom: 15px;
+}
+
+ .faq-accordian label {
+    padding: 5px 20px;
+    position: relative;
+    z-index: 20;
+    display: block;
+    cursor: pointer;
+    border: 1px solid $borderColor;
+    color: #222;
+    line-height: 40px;
+    font-size: 18px;
+ }
+ 
+ 
+ .faq-accordian label:hover { color : $themeColor;}
+ .faq-accordian input:checked + label, 
+ .faq-accordian input:checked + label:hover {
+    background: $themeColor;
+    color: $white;
+    border: 1px solid $themeColor;
+ }
+ 
+ .faq-accordian input { display: none; }
+ .faq-accordian .item-content {
+    background: rgba(255, 255, 255, 0.5);
+    margin-top: -1px;
+    overflow: hidden;
+    height: 0px;
+    position: relative;
+    z-index: 10;
+    transition: height 0.3s ease-in-out;
+ }
+ .faq-accordian .item-content p {
+    padding: 10px 20px;
+    color: #666;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.9;
+    
+ }
+ .faq-accordian input:checked ~ .item-content {
+    transition: height 0.5s ease-in-out;
+    border-right: 1px solid $borderColor;
+    border-left: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor
+ }
+
+ .faq-accordian input:checked ~ .item-content.item-content { height: 100px; }

@@ -1,0 +1,37 @@
+.single-product-gallery {
+	.single-product-slider-item {
+		width: 50%;
+	}
+	img {
+		border: 1px solid #fff;
+		transition: all 0.3s linear;
+		margin: auto;
+		width: 100%;
+		&:hover {
+			border-color: $theme-color;
+		}
+	}
+}
+.single-product-sticky {
+	.single-product-slider-item {
+		width: 100%;
+		text-align: center;
+	}
+	img {
+		border: 1px solid #fff;
+		transition: all 0.3s linear;
+		width: 100%;
+		&:hover {
+			border-color: $theme-color;
+		}
+	}
+}
+.product-details-content {
+	&.sticky {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 140px;
+		left: 0;
+		width: 100%;
+	}
+}

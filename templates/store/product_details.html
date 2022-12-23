@@ -1,0 +1,269 @@
+{% extends 'base_two.html' %}
+{% load static %}
+
+{% block content %}
+
+{% load currency %}
+<style>
+.product-add-to-cart-btnx {
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 0px;
+    background: #ea1c26;
+    height: 42px;
+    line-height: 42px;
+    text-transform: capitalize;
+    min-width: 200px;
+    text-align: center;
+    color: #FFF;
+    border-radius: 3px;
+    margin-top: 7px;
+    font-weight: 500;
+}
+
+@media (min-width: 768px){
+    .product-add-to-cart-btnx {
+        min-width: 200px;
+    }
+}
+
+@media (min-width: 992px){
+    .product-add-to-cart-btnx {
+        min-width: 270px;
+    }
+}
+
+.product-add-to-cart-btnx:hover {
+    background: #666;
+}
+</style>
+
+ <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between justify-content-md-between  align-items-center flex-md-row flex-column">
+                        <h3 class="breadcrumb-title">Single Product</h3>
+                        <div class="breadcrumb-nav">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li class="active" aria-current="page">Product</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+
+
+    <!-- Start Product Details Section -->
+    <div class="product-details-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="product-details-gallery-area" data-aos="fade-up"  data-aos-delay="0">
+                        <div class="product-large-image product-large-image-horaizontal">
+                             {% for i in product_gallery %}
+                            <div class="product-image-large-single zoom-image-hover">
+                                <img src="{{i.image.url}}" alt="">
+                            </div>
+                             {% endfor %}
+                        </div>
+                        <div class="product-image-thumb product-image-thumb-horizontal pos-relative">
+                            {% for i in product_gallery %}
+                            <div class="product-image-thumb-single">
+                                <img class="img-fluid" src="{{i.image.url}}" alt="">
+                            </div>
+                             {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <form style="display:contents" action="{% url 'add_to_cart' single_product.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="col-md-6">
+                        <div class="product-details-content-area" data-aos="fade-up"  data-aos-delay="200">
+                            <!-- Start  Product Details Text Area-->
+                            <div class="product-details-text">
+                                <h4 class="title">{{single_product.product_name}}</h4>
+                                <div class="d-flex align-items-center">
+                                    <div class="product-review">
+                                        <div class="raising-star">
+<!--                                     less than 0.5 show empty star else if greater than or equal to 0.5 print half star, if none print full stars-->
+                                <i class="fa fa-star{% if single_product.average_review < 0.5%}-o{%elif single_product.average_review >= 0.5 and single_product.average_review < 1 %}-half-o {% endif %}"></i>
+                                <i class="fa fa-star{% if single_product.average_review < 1.5%}-o{%elif single_product.average_review >= 1.5 and single_product.average_review < 2 %}-half-o {% endif %}"></i>
+                                <i class="fa fa-star{% if single_product.average_review < 2.5%}-o{%elif single_product.average_review >= 2.5 and single_product.average_review < 3 %}-half-o {% endif %}"></i>
+                                <i class="fa fa-star{% if single_product.average_review < 3.5%}-o{%elif single_product.average_review >= 3.5 and single_product.average_review < 4 %}-half-o {% endif %}"></i>
+                                <i class="fa fa-star{% if single_product.average_review < 4.5%}-o{%elif single_product.average_review >= 4.5 and single_product.average_review < 5 %}-half-o {% endif %}"></i>
+                             </div>
+                                    </div>
+                                    <a href="" class="customer-review">{{ single_product.review_count }} Review(s) </a>
+                                </div>
+                                <div class="price">{{ single_product.price|currency:request.session.currency }} {{ request.session.currency }}</div>
+                                {% if single_product.stock <= 0 %}
+                                 <h4 style="color: red" class="title"><i style="color: red" class="fa fa-times"></i> Out of Stock</h4>
+                                {% else %}
+                                  <h4 class="title"><i class="fa fa-check"></i> In Stock</h4>
+                                 {% endif %}
+                                <p>{{single_product.description}}</p>
+                            </div> <!-- End  Product Details Text Area-->
+                            <!-- Start Product Variable Area -->
+                            <div class="product-details-variable">
+                                <h4 class="title">Available Options</h4>
+                                <!-- Product Variable Single Item -->
+                                <div class="d-flex align-items-center">
+                                     <!-- Product Variable Single Item -->
+                                    <div class="variable-single-item mr-10">
+                                        <span>Color</span>
+                                        <select name="color" class="product-variable-size" required>
+                                            <option selected> Choose Color</option>
+                                            {% for i in single_product.variation_set.colors %}
+                                            <option value="{{i.variation_value}}">{{i.variation_value}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="variable-single-item">
+                                        <span>Size</span>
+                                        <select name="size" class="product-variable-size" required>
+                                            <option selected> Choose Size</option>
+                                            {% for i in single_product.variation_set.sizes %}
+                                            <option value="{{i.variation_value}}">{{i.variation_value}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex align-items-center mb-10">
+                                     {% if single_product.stock <= 0 %}
+                                      <button style="background: red" class="product-add-to-cart-btnx" disabled>Out of Stock </button>
+                                      {% else %}
+                                     <button type="submit" class="product-add-to-cart-btnx mr-10">Add to Cart </button>
+                                       {% endif %}
+                                    <div class="product-add-to-cart-btn">
+                                    <a href="{% url 'cart' %}">View Cart</a>
+                                    </div>
+                                </div>
+
+
+                            </div> <!-- End Product Variable Area -->
+                            <!-- Start  Product Details Social Area-->
+                            <div class="product-details-social">
+                                <ul>
+                                    <li><a href="instagram.com/dapperautoparts" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div> <!-- End  Product Details Social Area-->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> <!-- End Product Details Section -->
+
+
+  <!-- Start Product Details Tab Content Singel -->
+   <!-- Start Product Content Tab Section -->
+    <div class="product-details-content-tab-section section-inner-bg section-top-gap-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-details-content-tab-wrapper" data-aos="fade-up"  data-aos-delay="0">
+                         <div class="product-details-content-tab">
+                                    <div class="single-tab-content-item">
+                                        <!-- Start - Review Comment -->
+                                        <ul class="comment">
+                                         {% for review in reviews %}
+                                            <!-- Start - Review Comment list-->
+                                            <li class="comment-list">
+                                                <div class="comment-wrapper">
+                                                    <div class="comment-content">
+                                                        <div class="comment-content-top">
+                                                            <div class="comment-content-left">
+                                                                <h6 class="comment-name">{{review.user.first_name | capfirst }} {{review.user.last_name | capfirst }}</h6>
+                                                                <span>{{review.updated_at}}</span>
+                                                                <div class="raising-star">
+<!--                                              FOR EXAMPLE IF THE REVIEW RATING IS = 0.5 PRINT HALF STAR BUT IF IT IS LESS THAN 1 PRINT AN EMPTY STAR WITH NO COLOR. IF NONE OF THE CONDITIONS PRINT A FULL STAR-->
+                                                        <i class="fa fa-star{% if review.rating == 0.5%}-half-o{% elif review.rating < 1 %}-o {% endif %}"></i>
+                                                        <i class="fa fa-star{% if review.rating == 1.5%}-half-o{% elif review.rating < 2 %}-o {% endif %}"></i>
+                                                        <i class="fa fa-star{% if review.rating == 2.5%}-half-o{% elif review.rating < 3 %}-o {% endif %}"></i>
+                                                        <i class="fa fa-star{% if review.rating == 3.5%}-half-o{% elif review.rating < 4 %}-o {% endif %}"></i>
+                                                        <i class="fa fa-star{% if review.rating == 4.5%}-half-o{% elif review.rating < 5 %}-o {% endif %}"></i>
+                                                    </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="para-content">
+                                                            <h6><b>{{review.subject}}</b></h6>
+                                                            <p>{{review.review}}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li> <!-- End - Review Comment list-->
+                                         {% endfor %}
+                                        </ul> <!-- End - Review Comment -->
+                                        <div class="review-form">
+                                            <div class="review-form-text-top">
+                                                <h5>ADD A REVIEW</h5>
+                                            </div>
+
+                                            <form action="{% url 'submit_review' single_product.id  %}" method="POST">
+                                                 {% csrf_token %}
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <div class="default-form-box mb-20">
+                                                            <label>Review Title <span>*</span></label>
+                                                            <input placeholder="Review Title" type="text" name="subject" >
+                                                        </div>
+                                                    </div>
+                                                     <div class="col-12">
+                                                        <div class="default-form-box">
+                                                            <label for="comment-review-text">Your rating <span>*</span></label>
+                                                              <div class="rating-product">
+                                                                <input type="radio" name="rating" id="rating10" value="5" required ><label for="rating10" title="5"></label>
+                                                                <input type="radio" name="rating" id="rating9" value="4.5" required ><label for="rating9" title="4.5" class="half"></label>
+                                                                <input type="radio" name="rating" id="rating8" value="4" required ><label for="rating8" title="4"></label>
+                                                                <input type="radio" name="rating" id="rating7" value="3.5" required ><label for="rating7" title="3.5" class="half"></label>
+                                                                <input type="radio" name="rating" id="rating6" value="3" required ><label for="rating6" title="3"></label>
+                                                                <input type="radio" name="rating" id="rating5" value="2.5" required ><label for="rating5" title="2.5" class="half"></label>
+                                                                <input type="radio" name="rating" id="rating4" value="2" required ><label for="rating4" title="2"></label>
+                                                                <input type="radio" name="rating" id="rating3" value="1.5" required ><label for="rating3" title="1.5" class="half"></label>
+                                                                <input type="radio" name="rating" id="rating2" value="1" required ><label for="rating2" title="1"></label>
+                                                                <input type="radio" name="rating" id="rating1" value="0.5" required ><label for="rating1" title="0.5" class="half"></label>
+                                                              </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="default-form-box mb-20">
+                                                            <label>Your review <span>*</span></label>
+                                                            <textarea name="review" placeholder="Message"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                         {% if user.is_authenticated %}
+                                                            {% if order_product %}
+                                                                <button class="form-submit-btn" type="submit" value="Submit">Submit</button>
+                                                            {% else %}
+                                                                 <p>To Post a review you must Purchase this product</p>
+                                                            {% endif %}
+                                                        {% else %}
+                                                        <p>You must log in to review this product<span><a style="color: red" href="{% url 'login' %}"> Login</a></span></p>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                         </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- End Product Content Tab Section -->
+
+
+{% endblock %}

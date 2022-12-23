@@ -1,0 +1,82 @@
+/*****************************
+Pages - My Account
+*****************************/
+
+.dashboard_tab_button{
+    margin-bottom: 50px;
+    @include breakpoint(medium){margin-bottom: 0;}
+    ul li {
+        margin-bottom: 5px;
+        a{
+            font-size: 14px;
+            color: #ffffff;
+            font-weight: 500;
+            text-transform: capitalize;
+            background: #333;
+            border-radius: 3px;
+            &:hover,
+            &.active{background: $themeColor;}
+        }
+        
+    }
+}
+
+.dashboard_content {
+    h4 {
+        font-size: 22px;
+        text-transform: capitalize;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    h5 {
+        font-size: 20px;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    p {
+        font-size: 14px;
+        a {
+            color: $themeColor;
+            font-weight: 500;
+        }
+    }
+}
+
+.input-radio span {
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+.input-radio span input[type="radio"], 
+.account_login_form form span input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin-right: 2px;
+    position: relative;
+    top: 2px;
+}
+
+.account_login_form form .save_button button {
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+    border: 0;
+    background: #333;
+    color: #ffffff;
+    border-radius: 4px;
+    margin-top: 10px;
+
+    &:hover{background: $themeColor;}
+}
+
+
+.checkbox-default-more-text {
+    em{
+        margin-top: 16px;
+        display: block;
+    }
+}

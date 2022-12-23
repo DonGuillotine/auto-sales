@@ -1,0 +1,75 @@
+{% extends 'base_two.html' %}
+{% block content %}
+{% load static %}
+
+ <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between justify-content-md-between  align-items-center flex-md-row flex-column">
+                        <h3 class="breadcrumb-title">My Orders</h3>
+                        <div class="breadcrumb-nav">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li class="active" aria-current="page">My Orders</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+
+
+    <!-- ...:::: Start Account Dashboard Section:::... -->
+    <div class="account_dashboard">
+        <div class="container">
+            <div class="row">
+                {% include 'includes/dashboard_sidebar.html' %}
+                <div class="col-sm-12 col-md-9 col-lg-9">
+                    <!-- Tab panes -->
+                    <div class="dashboard_content" data-aos="fade-up"  data-aos-delay="200">
+                         <div class="tab-pane" id="orders">
+                            <h4>Orders</h4>
+                            <div class="table_page table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Order</th>
+                                            <th>Billing name</th>
+                                            <th>Phone</th>
+                                            <th>Order total</th>
+                                            <th>Date</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                          {% for order in orders %}
+                                        <tr>
+                                            <td><a href="{% url 'order_detail' order.order_number %}"> {{order.order_number}}</a></td>
+                                            <td>{{order.full_name}}</td>
+                                            <td>{{order.phone}}</td>
+                                            <td>${{order.order_total}} </td>
+                                            <td>{{order.created_at}}</td>
+                                            <td><a href="{% url 'order_detail' order.order_number %}"><i class="fa fa-eye"></i></a></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Account Dashboard Section:::... -->
+
+
+
+
+
+{% endblock %}

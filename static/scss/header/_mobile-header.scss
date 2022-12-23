@@ -1,0 +1,24 @@
+
+
+
+/* mobile search */
+.action-form {
+    position: relative;
+}
+.submit {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 100%;
+    background: $theme-color;
+    color: #FFF;
+    font-size: 20px;
+    border-radius: 0px 5px 5px 0px;
+    box-shadow: none;
+    outline: 0;
+}

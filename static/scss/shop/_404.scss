@@ -1,0 +1,80 @@
+// 404 page Style 
+
+.blank-page-area{
+	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+	height: 770px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	@media #{$desktop-device} {
+		height: 560px;
+	}
+	@media #{$tablet-device} {
+		height: 550px;
+	}
+	@media #{$large-mobile} {
+		height: 500px;
+	}
+	.page-not-found{
+		margin-top: 310px;
+		@media #{$desktop-device, $tablet-device} {
+			margin-top: 200px;
+		}
+		@media #{$large-mobile} {
+			margin-top: 150px;
+		}
+		h2{
+			font-size: 48px;
+		    font-weight: 700;
+			font-style: italic;
+			color: #4e4e4e;
+			line-height: 61px;
+			@media #{$large-mobile} {
+				font-size: 36px;
+				line-height: 48px;
+			}
+		}
+		p{
+			font-size: 36px;
+		    font-weight: 400;
+			color: #4e4e4e;
+			line-height: 61px;
+			margin: 0 0 50px;
+			@media #{$desktop-device, $tablet-device} {
+				margin: 0 0 30px;
+			}
+			@media #{$large-mobile} {
+				font-size: 28px;
+				line-height: 40px;
+				margin: 0 0 20px;
+			}
+		}
+		a{
+	    	color: #ffffff;
+	    	font-weight:500;
+	    	margin: 10px 0;
+	    	display: inline-block;
+	    	text-transform: capitalize;
+			width: 208px;
+			height: 63px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			border-radius: 5px;
+			background-color: $theme-color;
+			margin-top: 20px;
+			margin: auto;
+			i{
+				margin-left: 10px;
+				font-size: 20px;
+			}
+			&:hover{
+				background-color: #000000;
+			}
+		}
+	}
+}

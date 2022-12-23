@@ -1,0 +1,377 @@
+// Account Page Style
+
+.single-my-account {
+    margin-bottom: 20px;
+    border: 1px solid #ebebeb;
+    h3{
+    }
+    .myaccount-info-wrapper {
+	    padding: 30px 20px;
+	    background-color: #fff;
+	    .account-info-wrapper {
+		    border-bottom: 1px solid #eaeaea;
+		    margin-bottom: 28px;
+		    padding-bottom: 30px;
+		     h4 {
+			    font-size: 14px;
+			    margin: 0;
+			    text-transform: uppercase;
+			    color:#000000;
+			    font-weight: 500;
+			}
+			& h5 {
+			    font-size: 14px;
+			    letter-spacing: .2px;
+			    margin-top: 7px;
+			    font-weight: 500;
+			    color:#000000;
+			}
+			.account-info-wrapper {
+			    border-bottom: 1px solid #eaeaea;
+			    margin-bottom: 28px;
+			    padding-bottom: 30px;
+			}
+		}
+
+		.billing-info {
+		    margin-bottom: 20px;
+		    label {
+			    color: $body-color;
+			    font-size: 14px;
+				text-transform: capitalize;
+				margin-bottom: 10px;
+			}
+			input {
+			    background: transparent none repeat scroll 0 0;
+			    border: 1px solid #ebebeb;
+			    color: $body-color;
+			    height: 40px;
+			    padding: 0 15px;
+			    width: 100%;
+			    outline: none;
+			}
+		}
+		.billing-back-btn {
+		    display: -webkit-box;
+		    display: -ms-flexbox;
+		    display: flex;
+		    -webkit-box-pack: justify;
+		    -ms-flex-pack: justify;
+		    justify-content: space-between;
+		    margin-top: 26px;
+		    -webkit-box-align: center;
+		    -ms-flex-align: center;
+		    align-items: center;
+		    .billing-back {
+			    a {
+				    color:#000000;
+				    display: inline-block;
+				    font-size: 14px;
+				    font-weight: 500;
+				    text-transform: uppercase;
+				    i {
+					    font-size: 15px;
+					    color: $theme-color;
+					}
+					&:hover{
+					color:$theme-color;
+					}
+				}
+		    }
+		    .billing-btn {
+			    button {
+				    background-color: #f2f2f2;
+				    border: medium none;
+				    color:#000000;
+				    display: inline-block;
+				    font-size: 14px;
+				    font-weight: 500;
+				    line-height: 1;
+				    padding: 16px 35px 17px;
+				    text-transform: uppercase;
+				    cursor: pointer;
+				    -webkit-transition: all .3s ease 0s;
+				    -o-transition: all .3s ease 0s;
+				    transition: all .3s ease 0s;
+				    outline: none;
+				    border-radius: 0px;
+				    &:hover{
+				    background-color:$theme-color;
+				    color:#fff;
+				    }
+				}
+		    }
+		}
+		.entries-wrapper {
+			border: 1px solid #eaeaea;
+	    	position: relative;
+	    	 @media #{$large-mobile}{
+			     padding:30px 10px;
+			     }
+	    	&:before {
+			    position: absolute;
+			    content: "";
+			    height: 100%;
+			    width: 1px;
+			    left: 50%;
+			    top: 0;
+			    background-color: #eaeaea;
+
+	    	 @media #{$large-mobile}{
+			     display:none;
+			     }
+			}
+		.entries-info {
+			    padding: 30px 20px;
+	    	 @media #{$large-mobile}{
+			     padding:0 10px 30px;
+			     }
+			    p {
+			    color: $body-color;
+			    font-size: 14px;
+			    margin: 0;
+			    text-transform: capitalize;
+			    line-height:24px;
+			}
+			}
+			.entries-edit-delete {
+				a {
+				    background-color: #F32013;
+				    color: #fff;
+				    display: inline-block;
+				    line-height: 1;
+				    margin: 0 2px;
+				    padding: 12px 15px;
+				    text-transform: uppercase;
+				    font-weight: 500;
+				    &:hover{
+					    background-color:$theme-color;
+				    }
+				     &.edit {
+					    background-color:#000000;
+					    font-weight: 500;
+					    &:hover{
+						    background-color:$theme-color;
+					    }
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+/*****************************
+Pages - My Account
+*****************************/
+
+.dashboard_tab_button{
+	@media #{$large-mobile}{
+		margin-bottom: 50px;
+	}
+    li{
+        margin-bottom: 10px;
+		&:last-child{margin-bottom: 0;}
+		& .nav-link{
+			font-weight: 500;
+			color: #fff;
+			background-color: #000000;
+			font-size: 16px;
+			text-transform: uppercase;
+			display: block;
+			&.active{
+				background-color: $theme-color;
+			}
+		}
+    }
+}
+
+.dashboard_content {
+    h4 {
+        font-size: 24px;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+
+    h5 {
+        font-size: 20px;
+        text-transform: capitalize;
+        font-weight: 500;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    p {
+		font-size: 16px;
+		line-height: 26px;
+        a {
+            color: $theme-color;
+            font-weight: 500;
+        }
+    }
+}
+
+.input-radio span {
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+.input-radio span input[type="radio"], 
+.account_login_form form span input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin-right: 2px;
+    position: relative;
+    top: 2px;
+}
+
+
+
+.checkbox-default-more-text {
+    em{
+        margin-top: 14px;
+		display: block;
+		line-height: 24px;
+    }
+}
+
+
+.table_page {
+	table {
+		width: 100%;
+		caption-side: bottom;
+		border-collapse: collapse;
+		thead {
+			background: #f2f2f2;
+
+			tr {
+				th {
+					color: #24262b;
+					border-bottom: 3px solid $theme-color;
+					border-right: 1px solid #ededed;
+					font-size: 16px;
+					font-weight: 500;
+					text-transform: capitalize;
+					padding: 10px;
+					text-align: center;
+				}
+			}
+		}
+	}
+	tbody {
+		tr {
+			td {
+				border-right: 1px solid #ededed;
+				font-weight: 500;
+				text-transform: capitalize;
+				font-size: 14px;
+				text-align: center;
+				min-width: 150px;
+				a{
+					&:hover{
+						color:$theme-color;
+					}
+				}
+			}
+		}
+	}
+}
+
+.table_page table tbody tr td {
+    border-bottom: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+    text-align: center;
+    padding: 10px;
+}
+
+.table_desc table tbody tr td:last-child, .table_page table thead tr:last-child th {
+    border-right: 0;
+}
+
+.default-form-box {
+	margin-bottom: 20px;
+	label {
+		font-weight: 400;
+		font-size: 16px;
+		margin-bottom: 10px;
+		display: block;
+	}
+	& input{
+		display: block;
+		width: 100%;
+		height: 45px;
+		padding: 0px 10px 0px 20px;
+		font-size: 16px;
+		font-weight: 400;
+		color: #474747;
+		border-radius: 3px;
+		background-color: #fff;
+		border: 1px solid #e2e2e2;
+		line-height: 45px;
+		&:focus {
+			border-color: $theme-color;
+		}
+	}
+}
+
+.checkbox-default {
+	line-height: 1;
+	display: inline-block;
+	& input {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		position: relative;
+		line-height: 0;
+		height: auto;
+		&::after {
+			position: absolute;
+			content: "";
+			width: 20px;
+			height: 20px;
+			border: 1px solid #dee2e6;
+			line-height: 20px;
+			text-align: center;
+			left: 0;
+		}
+	}
+	& span {
+		display: inline-block;
+		transform: translateX(35px);
+		text-transform: capitalize;
+		color: #777!important;
+		font-size: 16px;
+		cursor: pointer;
+	}
+}
+.checkbox-default input:checked::after {
+    position: absolute;
+    content:"\f00c";
+    background: $theme-color;
+    border-color: $theme-color;
+    font-family:'FontAwesome';
+    color: #fff;
+}
+
+
+
+.save_button {
+	button{
+		background-color: #3b3b3b;
+		border-color: #3b3b3b;
+		color: #fff;
+		font-weight: 400;
+		font-size: 14px;
+		width: 130px;
+		height: 45px;
+		line-height: 45px;
+		&:hover{
+			border-color: $theme-color;
+			background-color: $theme-color;
+			color: $white;
+		}
+	
+	}
+}

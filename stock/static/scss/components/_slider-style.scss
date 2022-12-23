@@ -1,0 +1,136 @@
+/*****************************
+Components - Slider Style
+*****************************/
+/*Slick Slider Modifier CSS*/
+
+.slick-slide{
+    outline: none;
+}
+.fix-slider-dots .slick-dots li button {
+    text-indent: -9999px;
+    font-size: 0;
+    padding: 0;
+}
+
+
+/* Slick Slider -  Hero Slider */
+.hero-slider-dots{
+    position: relative;
+}
+
+.hero-slider-dots .slick-dots{
+    position: absolute;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+
+    li{
+        margin-right: 10px;
+        &:last-child{margin-right: 0;}
+    }
+
+    button{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba($themeColor, .7);
+        transition: $baseTransition;
+        border: 4px solid transparent;
+        transform: scale(.7);
+    }
+}
+
+.hero-slider-dots .slick-dots .slick-active button,
+.hero-slider-dots .slick-dots button:hover{
+    transform: scale(1);
+    border: 4px solid $black;
+    background: $white;
+}
+
+
+/* Slick Slider -  Default Slider */
+.product-default-slider .slick-list{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.product-default-slider .slick-list .slick-slide{
+    margin-left: 15px;
+    margin-right: 15px;
+
+    overflow-x: hidden;
+    @include breakpoint(small){
+        overflow-x: visible;
+    }
+}
+
+.default-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    border-radius: 50%;
+    color: $themeColor;
+    z-index: 9;
+    font-size: 40px;
+    background: transparent;
+    visibility: hidden;
+    opacity: 0;
+    transition: $baseTransition;
+}
+
+.product-default-slider {
+    position: relative;
+}
+
+.default-slider-arrow--left {
+    left: calc(0% + 15px);
+}
+
+.default-slider-arrow--right {
+    right: calc(0% + 15px);
+}
+
+.product-default-slider:hover .default-slider-arrow{
+    visibility: visible;
+    opacity: 1;
+}
+
+.product-default-slider:hover .default-slider-arrow--left{
+    left: 0;
+}
+
+.product-default-slider:hover .default-slider-arrow--right {
+    right: 0;
+}
+
+/*Testimonial SLider*/
+.testimonial-slider-dots{
+    position: relative;
+}
+
+.testimonial-slider-dots .slick-dots{
+    position: absolute;
+    display: flex;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+
+    li{
+        margin-right: 10px;
+        &:last-child{margin-right: 0;}
+    }
+
+    button{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #bbb;
+        transition: $baseTransition;
+    }
+}
+
+.testimonial-slider-dots .slick-dots .slick-active button,
+.testimonial-slider-dots .slick-dots button:hover{
+    background: $themeColor;
+}

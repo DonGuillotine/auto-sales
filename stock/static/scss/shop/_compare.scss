@@ -1,0 +1,116 @@
+// Compare Page Style
+
+.compare-table {
+	.table {
+		tbody {
+			border-right: 1px solid #ebebeb;
+			tr{
+				&:first-child {
+				    border-top: 1px solid #ebebeb;
+				}
+				td {
+				    text-align: center;
+				    border: none;
+				    padding: 25px 30px;
+				    vertical-align: middle;
+				    border-bottom: 1px solid #ebebeb;
+				    border-left: 1px solid #ebebeb;
+				    &.first-column {
+					    min-width: 180px;
+					    font-size: 18px;
+					    font-weight: 500;
+					    color:#000000;
+					    margin: 0;
+					    line-height: 1;
+					}
+					&.product-image-title {
+					    min-width: 310px;
+					    vertical-align: bottom;
+					    padding-top: 70px;
+					    .image {
+						    clear: both;
+						    width: 100%;
+						    margin-bottom: 40px;
+						    display: block;
+						}
+						.category {
+						    float: left;
+						    clear: both;
+						    font-size: 13px;
+						    line-height: 15px;
+						    color:#000000;
+						    text-transform: capitalize;
+						    letter-spacing: .5px;
+						}
+						.title {
+						    float: left;
+						    clear: both;
+						    font-size: 16px;
+						    font-weight: 500;
+						    color:#000000;
+						    line-height: 20px;
+						    margin-bottom: 10px;
+						}
+					}
+					&.pro-desc {
+						p {
+						    text-align: left;
+						    margin: 0;
+							line-height:24px;
+							font-size: 14px;
+						}
+					}
+					&.pro-price, &.pro-color, &.pro-stock{
+						font-size: 16px;
+					    font-weight: 500;
+					    color:#000000
+					}
+					&.pro-addtocart {
+						.add-to-cart {
+						    position: relative;
+						    background-color: $theme-color;
+						    color: #fff;
+						    border-radius: 0px;
+						    display: inline-block;
+						    width: 170px;
+						    padding: 14px 25px 14px 25px;
+						    -webkit-transition: all 0.3s ease-in-out;
+						    -o-transition: all 0.3s ease-in-out;
+						    transition: all 0.3s ease-in-out;
+						    outline: none;
+						    font-weight: 500;
+						    &:hover{
+						    	background-color:#000000;
+						    }
+						}
+					}
+					&.pro-remove {
+						button {
+						    border: none;
+						    background-color: transparent;
+						    padding: 0;
+						    cursor: pointer;
+						    -webkit-transition: all 0.3s ease-in-out;
+						    -o-transition: all 0.3s ease-in-out;
+						    transition: all 0.3s ease-in-out;
+						    outline: none;
+						    color:#000000;
+						    & i{
+						    font-size:22px;
+						    }
+						    &:hover{
+						    color:$theme-color;
+						    }
+						}
+					}
+					&.pro-ratting {
+						& i {
+						    font-size: 20px;
+						    color: #fdd835;
+						}
+					}
+				}
+			}
+		}
+	}
+}

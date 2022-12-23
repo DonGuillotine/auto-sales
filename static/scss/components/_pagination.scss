@@ -1,0 +1,25 @@
+/*****************************
+Components - Page Pagination
+*****************************/
+.page-pagination {
+    margin-top: 42px;
+
+    li {
+        display: inline-block;
+        margin-right: 15px;
+        &:last-child{margin-right: 0;}
+    }
+
+    li a {
+        padding: 5px 10px;
+        display: block;
+        background: #f1f1f1;
+        border-radius: 3px;
+        font-weight: 500;
+        &:hover,
+        &.active{
+            background: $themeColor;
+            color: $white;
+        }
+    }
+}

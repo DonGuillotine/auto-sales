@@ -1,0 +1,64 @@
+//Modal Style
+
+.modal-dialog {
+	margin: 0% auto;
+	max-width: 960px;
+	width: 960px;
+	padding: 35px;
+	transition: $baseTransition;
+
+	@media #{$tablet-device} {
+		max-width: 720px;
+		width: 720px;
+	}
+	@media #{$large-mobile} {
+		width: 98%;
+		max-width: 100%;
+		padding: 35px 0;
+		margin: auto 2%;
+	}
+
+	.gallery-thumbs {
+		width: 100%;
+		margin:20px auto;
+		& .swiper-slide {
+			& img {
+				transition: $baseTransition;
+				border: 1px solid transparent;
+				border-radius: 5px;
+			}
+			&:hover {
+				& img {
+					border-color: $theme-color;
+				}
+			}
+			&.swiper-slide-thumb-active {
+				& img {
+					border-color: $theme-color;
+				}
+			}
+			.img-responsive {
+				width: auto;
+			}
+		}
+	}
+	& .social-info{
+		& ul{
+			display: flex;
+		}
+	}
+}
+
+.modal.fade {
+	display: block !important;
+	opacity: 0;
+	visibility: hidden;
+	transition: $baseTransition;
+}
+
+.modal.fade.show {
+	display: block !important;
+	opacity: 1;
+	visibility: visible;
+	transition: $baseTransition;
+}

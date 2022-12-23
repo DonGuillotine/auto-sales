@@ -1,0 +1,60 @@
+.filter-type-price{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+   
+    label{
+        display: inline-block;
+    }
+    input{
+        width: 100px;
+        display: inline-block;
+        text-align: right;
+    }
+}
+
+.ui-slider-horizontal {
+    height: 5px;
+}
+
+.ui-widget-header {
+    background: $themeColor;
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+    top: -8px;
+    margin-left: -.6em;
+}
+
+.ui-slider .ui-slider-handle{
+    border-radius: 50%;
+    outline: none;
+}
+.ui-state-default, 
+.ui-widget-content 
+.ui-state-default, 
+.ui-widget-header .ui-state-default, 
+.ui-button, 
+html .ui-button.ui-state-disabled:hover, 
+html .ui-button.ui-state-disabled:active {
+    border: 5px solid #ea1c26;
+    background: #f6f6f6;
+    font-weight: normal;
+    color: #454545;
+    border-radius: 50%;
+    outline: none;
+}
+
+.ui-state-active, 
+.ui-widget-content 
+.ui-state-active, 
+.ui-widget-header .ui-state-active, 
+a.ui-button:active, 
+.ui-button.ui-state-active:hover {
+    border: 5px solid #ea1c26;
+    background: #f6f6f6;
+    font-weight: normal;
+    color: #454545;
+    border-radius: 50%;
+    outline: none;
+}

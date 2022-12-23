@@ -1,0 +1,123 @@
+/*****************************
+Pages - Service
+*****************************/
+
+
+/*Service Promo*/
+.service-promo-wrapper{
+    margin-bottom: -47px;
+}
+
+.service-content {
+    padding: 0 0;
+    margin-bottom: 35px;
+    @include breakpoint(medium){padding: 0 2%;}
+    @include breakpoint(large){padding: 0 8%;}
+    @include breakpoint(xlarge){padding: 0 12%;}
+
+    h4{margin-bottom: 16px;}
+}
+.service-promo-single-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 23px;
+}
+
+.service-promo-icon {
+    font-size: 35px;
+    line-height: 35px;
+    margin-right: 20px;
+    color: $themeColor;
+}
+
+.service-promo-content h6 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+/*Service Display*/
+.service-display-content{
+    h4{
+        font-weight: 600;
+        line-height: 40px;
+        text-transform: uppercase;
+        font-size: 25px;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        @include breakpoint(large){margin-top: 0;}
+    }
+
+    p{
+        font-size: 14px;
+        line-height: 28px;
+        margin-bottom: 25px;
+    }
+
+    a {
+        font-size: 14px;
+        padding: 6px 20px;
+        display: inline-block;
+        border: 1px solid #333;
+        border-radius: 30px;
+
+        &:hover{
+            color: $white;
+            background: $themeColor;
+            border-color: $themeColor;
+        }
+    }
+}
+
+/*Price*/
+.price-section {
+    margin-bottom: -30px;
+}
+
+.price-single-item {
+    background: $gray-100;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.price-title {
+    padding: 10px 0;
+    color: $white;
+    background: $themeColor;
+    font-size: 14px;
+}
+
+.price-value {
+    font-size: 40px;
+    font-family: $body-font;
+    padding: 11px 0;
+}
+
+.price-value span {
+    font-size: 12px;
+}
+
+.price-detail li {
+    padding: 13px 10px;
+    border-top: 1px solid $borderColor;
+
+    a{
+        line-height: 38px;
+        padding: 0 20px;
+        border: 1px solid #333;
+        color: #333;
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 600;
+        border-radius: 30px;
+        text-transform: uppercase;
+        margin: 20px;
+
+        &:hover{
+            color: $white;
+            background: $themeColor;
+            border-color: $themeColor;
+        }
+    }
+}

@@ -1,0 +1,174 @@
+
+/*Header Bottom Area*/
+.header-bottom{
+    background: #333;
+    position: relative;
+}
+
+.sticky-header.sticky {
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    top: 0;
+    background: #333;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+    animation-name: fadeInDown;
+    animation-duration: 900ms;
+    animation-timing-function: cubic-bezier(0.2, 1, 0.22, 1);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    border-bottom: 0;
+}
+
+.main-menu{
+    position: relative;
+    nav > ul > li{
+        position: relative;
+        display: inline-block;
+    }
+
+    nav > ul > .has-dropdown{
+        
+        margin-right: 5px;
+        &:last-child{margin-right: 0;}
+    }
+    nav > ul > .has-megaitem{
+        position: static;
+    }
+
+    nav > ul > li > a{
+        display: block;
+        line-height: 24px;
+        padding: 15px 30px;
+        font-size: 16px;
+        line-height: 30px;
+        text-transform: capitalize;
+        font-weight: 500;
+        color: $white;
+
+        &:hover,
+        &.active{
+            background: $themeColor;
+            color: $white;
+        }
+    }
+}
+
+.sub-menu > li > a,
+.mega-menu-sub > li > a {
+    font-weight: 400;
+    display: block;
+    line-height: 35px;
+    text-transform: capitalize;
+    color: $bodyColor;
+    position: relative;
+    transition: $baseTransition;
+    &::after{
+        position: absolute;
+        content: "";
+        top: 50%;
+        left: 0;
+        transform: translate(0px, -50%);
+        height: 5px;
+        width: 5px;
+        border-radius: 50%;
+        background: $themeColor;
+        visibility: hidden;
+        opacity: 0;
+        transition: $baseTransition;
+    }
+    &:hover{
+        color: $themeColor;
+        transform: translateX(10px);
+    }
+
+    &:hover::after{
+        transform: translate(-10px, -50%);
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.sub-menu{
+    position: absolute;
+    min-width: 230px;
+    padding: 25px 20px;
+    background: $white;
+    box-shadow: 0 3px 11px 0 rgba(0, 0, 0, 0.1);
+    transform: perspective(600px) rotateX(-90deg);
+    transform-origin: 0 0 0;
+    left: 0;
+    right: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: 99;
+    top: 100%;
+    text-align: left;
+}
+
+.mega-menu{
+    position: absolute;
+    min-width: 100%;
+    padding: 25px 30px 30px 30px;
+    background: $white;
+    box-shadow: 0 3px 11px 0 rgba(0, 0, 0, 0.1);
+    transform: perspective(600px) rotateX(-90deg);
+    transform-origin: 0 0 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s;
+    z-index: 99;
+    top: 100%;
+    text-align: left;
+}
+
+.mega-menu-inner{
+    display: flex;
+    justify-content: space-between;
+}
+
+.mega-menu-item-title{
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 13px;
+    color: $headingColor;
+    &:hover{
+        color: $themeColor;
+    }
+}
+
+.mega-menu-sub > li{
+    display: block;
+}
+
+.main-menu nav > ul > li:hover .sub-menu,
+.main-menu nav > ul > li:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: perspective(600px) rotateX(0deg);
+}
+
+.menu-banner{
+    margin-top: 20px;
+
+    & > a{
+        display: block;
+        width: 100%;
+    }
+
+    & img{
+        width: 100%;
+    }
+}
+
+
+

@@ -1,0 +1,46 @@
+// Responsive Mixin 
+@mixin breakpoint($point) {
+
+    // 576 to Upper
+    @if $point == xsmall {
+        @media (min-width: 360px) { 
+            @content ; 
+        }
+    }
+
+    // 576 to Upper
+    @if $point == small {
+        @media (min-width: 576px) { 
+            @content ; 
+        }
+    }
+
+    // 768 to Upper
+    @if $point == medium {
+        @media (min-width: 768px) { 
+            @content ; 
+        }
+    }
+
+    // 998 to Upper
+    @if $point == large {
+        @media (min-width: 992px) { 
+            @content ; 
+        }
+    }
+
+    // 1200 to Upper
+    @if $point == xlarge {
+        @media (min-width: 1200px) { 
+            @content ; 
+        }
+    }
+
+    // 1367 to Upper
+    @if $point == xxlarge {
+        @media (min-width: 1566px) { 
+            @content ; 
+        }
+    }
+
+}
