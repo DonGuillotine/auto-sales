@@ -1,0 +1,416 @@
+/*----------------------------------------*/
+
+/*  01. Template default CSS
+/*----------------------------------------*/
+
+@mixin placeholder {
+	&::-webkit-input-placeholder {
+		@content;
+	}
+	&:-moz-placeholder {
+		@content;
+	}
+	&::-moz-placeholder {
+		@content;
+	}
+	&:-ms-input-placeholder {
+		@content;
+	}
+}
+
+/*-- Google Font --*/
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap");
+
+/*-- Common Style --*/
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: $body-font;
+	font-size: 16px;
+	font-weight: 400;
+	font-style: normal;
+	line-height: 1.625;
+	position: relative;
+	visibility: visible;
+	color: $body-color;
+	&[dir="rtl"] {
+		text-align: right;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: $Rubik;
+	color: $heading-color;
+}
+
+a,
+button {
+	transition: $baseTransition;
+	text-decoration: none;
+	background-color: transparent;
+	border: 0;
+}
+
+textarea {
+	width: 100%;
+	padding-left: 20px;
+	padding-top: 20px;
+	outline: 0;
+}
+
+label {
+	margin-bottom: 15px;
+}
+
+.form-control {
+	display: block;
+	width: 100%;
+	min-height: 45px;
+	padding: 6px 80px 6px 20px;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.625;
+	color: $body-color;
+	border-radius: 5px;
+	background-color: #fff;
+}
+
+.form-control:focus {
+	color: #495057;
+	background-color: #fff;
+	border-color: #ced4da;
+	outline: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+p {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+ol,
+ul,
+dl {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+li {
+	list-style: none;
+}
+
+input:focus,
+button:focus {
+	outline: 0px dotted;
+	outline: 0px auto -webkit-focus-ring-color;
+	box-shadow: none;
+}
+
+input {
+	display: inline-block;
+	line-height: 50px;
+	height: 50px;
+	font-size: 15px;
+	width: 100%;
+	background: transparent;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	text-align: left;
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	padding-left: 20px;
+	padding-right: 10px;
+	outline: 0;
+}
+
+//img style
+.img-responsive {
+	max-width: 100%;
+	display: block;
+	width: 100%;
+}
+
+// Section Padding
+.pt-100px {
+	padding-top: 100px;
+	@media #{$desktop-device} {
+		padding-top: 80px;
+	}
+	@media #{$tablet-device} {
+		padding-top: 60px;
+	}
+	@media #{$large-mobile} {
+		padding-top: 60px;
+	}
+}
+
+.pb-100px {
+	padding-bottom: 100px;
+	@media #{$desktop-device} {
+		padding-bottom: 80px;
+	}
+	@media #{$tablet-device} {
+		padding-bottom: 60px;
+	}
+	@media #{$large-mobile} {
+		padding-bottom: 60px;
+	}
+}
+
+.pt-70px {
+	padding-top: 70px;
+}
+.pb-40px {
+	padding-bottom: 40px;
+}
+
+.line-height-1 {
+	line-height: 1;
+}
+.mt-25px {
+	margin-top: 25px;
+}
+.mt-30px {
+	margin-top: 30px;
+}
+.mt-20px{
+	margin-top: 20px;
+}
+.mb-30px {
+	margin-bottom: 30px;
+}
+.ml-20px {
+	margin-left: 20px;
+}
+.ml-15px {
+	margin-left: 15px;
+}
+.mr-15px {
+	margin-right: 15px;
+}
+.ml-5px {
+	margin-left: 5px;
+}
+.ml-10px {
+	margin-left: 10px;
+}
+.pl-35px {
+	padding-left: 35px;
+}
+.pr-35px {
+	padding-right: 35px;
+}
+.mb-n-50 {
+	margin-bottom: -50px;
+}
+.mb-50px {
+	margin-bottom: 50px;
+}
+.mb-40px {
+	margin-bottom: 40px;
+}
+.ml-auto {
+	margin-left: auto;
+}
+.mr-auto {
+	margin-right: auto;
+}
+// Section Background Color
+.bg-black {
+	background-color: #2f333a;
+}
+
+.bg-gray {
+	background-color: #f4f4f4;
+}
+.bg-white {
+	background-color: #ffffff;
+}
+
+//Scroll to up
+#scrollUp {
+	width: 50px;
+	height: 50px;
+	background: $theme-color;
+	color: #fff;
+	right: 20px;
+	bottom: 60px;
+	text-align: center;
+	overflow: hidden;
+	border-radius: 50px;
+	z-index: 9811 !important;
+	font-size: 36px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	&:hover {
+		background: $theme-color;
+		color: #fff;
+		box-shadow: 0 5px 15px 0 rgb(153 63 107 / 50%);
+		transform: translateY(-1px);
+	}
+}
+
+// Slider Animation Style
+.slider-animated-1 {
+	& > * {
+		animation-duration: 1s;
+		animation-fill-mode: both;
+		animation-name: fadeOutUp;
+	}
+}
+
+.swiper-slide-active {
+	& .slider-animated-1 {
+		// All Element Selector
+		& > * {
+			animation-name: fadeInUp;
+			// Child Selector
+			&:nth-child(1) {
+				animation-delay: 0.5s;
+			}
+			&:nth-child(2) {
+				animation-delay: 1s;
+			}
+			&:nth-child(3) {
+				animation-delay: 1.5s;
+			}
+			&:nth-child(4) {
+				animation-delay: 2s;
+			}
+			&:nth-child(5) {
+				animation-delay: 2.5s;
+			}
+			&:nth-child(6) {
+				animation-delay: 3s;
+			}
+		}
+		&.slider-animated-2 {
+			// All Element Selector
+			& > * {
+				animation-name: lightSpeedInLeft;
+				// Child Selector
+				&:nth-child(1) {
+					animation-delay: 0.5s;
+				}
+				&:nth-child(2) {
+					animation-delay: 1s;
+				}
+				&:nth-child(3) {
+					animation-delay: 1.5s;
+				}
+				&:nth-child(4) {
+					animation-delay: 2s;
+				}
+				&:nth-child(5) {
+					animation-delay: 2.5s;
+				}
+				&:nth-child(6) {
+					animation-delay: 3s;
+				}
+			}
+		}
+	}
+}
+
+// Section Title Style
+.section-title {
+	.title {
+		font-size: 36px;
+		font-family: $Rubik;
+		font-weight: 500;
+		display: inline-block;
+		color: #424242;
+		margin: 0 0 25px;
+		line-height: 27px;
+		@media #{$large-mobile} {
+			font-size: 30px;
+		}
+	}
+	line-height: 1;
+	padding: 0 300px;
+	margin-bottom: 50px;
+	@media #{$desktop-device} {
+		padding: 0 170px;
+	}
+	@media #{$tablet-device} {
+		padding: 0 80px;
+	}
+	@media #{$large-mobile} {
+		padding: 0 0px;
+	}
+	@media #{$extra-small-mobile} {
+		margin-bottom: 30px;
+	}
+	P {
+		line-height: 30px;
+		color: #747474;
+	}
+	&.mb-60px {
+		@media #{$extra-small-mobile} {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+/* Fixed Header */
+
+.sticky-nav.menu_fixed {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99;
+	-webkit-animation: sticky 1s;
+	-moz-animation: sticky 1s;
+	-o-animation: sticky 1s;
+	animation: sticky 1s;
+	-webkit-box-shadow: 2px 4px 8px rgba(51, 51, 51, 0.25);
+	-moz-box-shadow: 2px 4px 8px rgba(51, 51, 51, 0.25);
+	box-shadow: 2px 4px 8px rgba(51, 51, 51, 0.25);
+	background-color: $white;
+}
+
+@-webkit-keyframes sticky {
+	0% {
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
+	}
+	100% {
+		-webkit-transform: translateY(0%);
+		transform: translateY(0%);
+	}
+}
+
+@keyframes sticky {
+	0% {
+		-webkit-transform: translateY(-100%);
+		transform: translateY(-100%);
+	}
+	100% {
+		-webkit-transform: translateY(0%);
+		transform: translateY(0%);
+	}
+}

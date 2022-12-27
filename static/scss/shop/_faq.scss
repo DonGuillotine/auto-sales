@@ -1,0 +1,83 @@
+.faq-area {
+	.inner-descripe {
+		h4 {
+			color: $heading-color;
+			font-size: 24px;
+			font-weight: 500;
+			margin: 0 0 15px;
+			line-height: 28px;
+			@media #{$large-mobile} {
+				font-size: 20px;
+			}
+		}
+		p {
+			color: $body-color;
+			line-height: 26px;
+		}
+		margin-bottom: 30px;
+	}
+	.single-my-account {
+		h3 {
+			&.panel-title {
+				border-bottom: 0;
+				text-transform: capitalize;
+				a {
+					font-size: 16px;
+					color: #212121;
+					display: block;
+					padding: 16px 45px;
+					position: relative;
+					color:$heading-color;
+					@media #{$large-mobile} {
+						padding: 12px 38px;
+						font-size: 14px;
+					}
+					@media #{$small-mobile} {
+						font-size: 13px;
+					}
+					&:before {
+						content:"\f107";
+						display: inline-block;
+						font-family:'FontAwesome';
+						font-size: 14px;
+						position: absolute;
+						right: 20px;
+						top: 50%;
+						margin-top: -14px;
+					}
+				}
+				span {
+					color: #212121;
+					font-size: 14px;
+					left: 20px;
+					position: absolute;
+					top: 10px;
+					@media #{$large-mobile} {
+						top: 10px;
+						font-size: 14px;
+					}
+					font-size: 16px;
+					top: 14px;
+				}
+				a[aria-expanded="true"] {
+					color: $theme-color;
+				}
+			}
+		}
+		.panel-body {
+			padding: 20px;
+			line-height: 26px;
+		}
+	}
+}
+.single-my-account h3.panel-title {
+    background-color: #ebebeb;
+    border-bottom: 1px solid #ebebeb;
+    color: #212121;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+    position: relative;
+    text-transform: uppercase;
+    line-height: 2;
+}

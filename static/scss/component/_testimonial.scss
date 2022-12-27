@@ -1,0 +1,117 @@
+/* Testimonial Section style */
+.testimonial-area {
+	&.pb-40px {
+		@media #{$tablet-device, $large-mobile} {
+			padding-bottom: 0px;
+		}
+	}
+}
+.testimonial-wrapper {
+		max-width: 570px;
+	.swiper-wrapper {
+		.swiper-slide {
+			.testi-inner {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				margin: auto;
+				.testi-content {
+					text-align: center;
+					margin-top: 45px;
+					position: relative;
+					&::after {
+						position: absolute;
+						top: 50%;
+						left: 50%;
+						content: "";
+						background-image: url(../images/testimonial-image/quate-1.png);
+						background-repeat: no-repeat;
+						background-position: center;
+						width: 136px;
+						height: 117px;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						align-items: center;
+						margin-top: -58.5px;
+						margin-left: -68px;
+						z-index: -1;
+					}
+					p {
+						font-size: 30px;
+						line-height: 48px;
+						color: #565656;
+						font-style: italic;
+						@media #{$tablet-device} {
+							font-size: 24px;
+							line-height: 38px;
+						}
+						@media #{$large-mobile}{
+							font-size: 24px;
+							line-height: 38px;
+						}
+					}
+				}
+				.testi-author {
+					line-height: 1;
+					margin: 45px 0 0;
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					.author-img {
+						position: relative;
+					}
+					.author-name {
+						.name {
+							color: #393939;
+							font-size: 18px;
+							margin: 0 0 10px;
+							font-weight: 500;
+							text-transform: uppercase;
+						}
+						.title {
+							color: #808080;
+							font-size: 18px;
+							font-weight: 300;
+							text-transform: uppercase;
+						}
+					}
+				}
+			}
+		}
+	}
+	.swiper-button-prev:after, .swiper-button-next:after{
+		font-family:'FontAwesome';
+		font-size: 24px;
+		color: #424242;
+		transition: $baseTransition;
+	}
+	.swiper-button-prev:after{
+		content:"\f060";
+	}
+	.swiper-button-next:after{
+		content:"\f061";
+	}
+	.swiper-button-prev{
+		left: 25%;
+		@media #{$small-mobile}{
+			left: 15%;
+		}
+	}
+	.swiper-button-next{
+		right: 25%;
+		@media #{$small-mobile}{
+			right: 15%;
+		}
+	}
+
+	.swiper-button-prev, .swiper-button-next{
+		top: 60px;
+		&:hover{
+			&:after{
+				color: $theme-color;
+			}
+		}
+	}
+}

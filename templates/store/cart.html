@@ -1,0 +1,157 @@
+{% extends 'base_two.html' %}
+{% block content %}
+{% load static %}
+{% load currency %}
+<style>
+    .handle-counter { overflow: hidden; }
+
+.handle-counter .counter-minus,  .handle-counter .counter-plus,  .handle-counter input {
+  float: left;
+  text-align: center;
+}
+
+.handle-counter .counter-minus,  .handle-counter .counter-plus { text-align: center; }
+
+
+
+.btn {
+  padding: 6px 12px;
+  border: 1px solid transparent;
+  color: #fff;
+}
+
+.table_page table tbody tr td.product_quantity {
+    min-width: 157px;
+}
+
+</style>
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between justify-content-md-between  align-items-center flex-md-row flex-column">
+                        <h3 class="breadcrumb-title">Cart</h3>
+                        <div class="breadcrumb-nav">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li class="active" aria-current="page">Cart</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+{% if not cart_items %}
+
+    <!-- ...:::: Start Error Section :::... -->
+    <div class="error-section">
+        <div class="container">
+            <div class="row">
+                <div class="error_form">
+                    <h4 data-aos="fade-up"  data-aos-delay="200">Cart Empty</h4>
+                    <p data-aos="fade-up"  data-aos-delay="400">There are no more items in your cart</p>
+                    <div class="row">
+                        <div class="col-10 offset-1 col-md-6 offset-md-3">
+                            <a href="{% url 'store' %}" data-aos="fade-up"  data-aos-delay="800">Continue shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Error Section :::... -->
+
+{% else %}
+
+
+    <!-- ...:::: Start Cart Section:::... -->
+    <div class="cart-section">
+        <!-- Start Cart Table -->
+        <div class="cart-table-wrapper"  data-aos="fade-up"  data-aos-delay="0">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-12">
+                        <div class="table_desc">
+                            <div class="table_page table-responsive">
+                                <table>
+                                    <!-- Start Cart Table Head -->
+                                    <thead>
+                                        <tr>
+                                            <th class="product_thumb">Image</th>
+                                            <th class="product_name">Product Name</th>
+                                            <th class="product-price">Price</th>
+                                            <th class="product_quantity">Quantity</th>
+                                            <th class="product_remove">Delete</th>
+                                        </tr>
+                                    </thead> <!-- End Cart Table Head -->
+                                    <tbody>
+                                      {% for cart_item in cart_items %}
+                                        <!-- Start Cart Single Item-->
+                                        <tr>
+                                            <td class="product_thumb"><a href="{{cart_item.product.get_url}}"><img src="{{ cart_item.product.images.url }}" alt=""></a></td>
+                                            <td class="product_name"><a href="{{cart_item.product.get_url}}">{{cart_item.product.product_name}}</a>
+                                                <p class="text-muted small">
+                                                {% if cart_item.variations.all %}
+                                                    {% for item in cart_item.variations.all %}
+                                                        {{ item.variation_category | capfirst }} : {{item.variation_value | capfirst }} <br>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </p>
+                                            </td>
+                                            <td class="product-price">{{ cart_item.sub_total|currency:request.session.currency }} {{ request.session.currency }} <p class="text-muted small">{{ cart_item.product.price|currency:request.session.currency }} {{ request.session.currency }} each</p></td>
+                                            <td class="product_quantity">
+                                                 <div class="handle-counter" id="">
+                                                      <a href="{% url 'remove_or_delete' cart_item.product.id cart_item.id %}" class="counter-minus btn btn-primary">-</a>
+                                                      <input type="text" value="{{cart_item.quantity}}">
+                                                         <form action="{% url 'add_to_cart' cart_item.product.id %}" method="POST">
+                                                             {% for item in cart_item.variations.all %}
+                                                                <input type="hidden" name="{{ item.variation_category | lower }}" value="{{ item.variation_value | capfirst }}">
+                                                             {% endfor %}
+                                                             <button type="submit" class="counter-plus btn btn-primary">+</button>
+                                                         </form>
+                                                    </div>
+                                            </td>
+                                            <td class="product_remove"><a id="{{forloop.counter}}" href="javascript:void(0)"><i class="fa fa-trash-o"></i></a></td>
+                                        </tr> <!-- End Cart Single Item-->
+                                      {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-lg-3 col-md-12">
+                        <div class="coupon_code mt-0"  data-aos="fade-up"  data-aos-delay="400">
+                            <h3>Cart Total</h3>
+                            <div class="coupon_inner">
+                                <div class="cart_subtotal">
+                                    <p>Total products</p>
+                                    <p class="cart_amount">{{ total|currency:request.session.currency }} {{ request.session.currency }} </p>
+                                </div>
+                                 <div class="cart_subtotal">
+                                    <p>Tax</p>
+                                    <p class="cart_amount">{{ tax|currency:request.session.currency }} {{ request.session.currency }}</p>
+                                </div>
+                                <div class="cart_subtotal">
+                                    <p>Grand Total </p>
+                                    <p class="cart_amount">{{ grand_total|currency:request.session.currency }} {{ request.session.currency }}</p>
+                                </div>
+                                <div class="checkout_btn">
+                                    <a href="{% url 'checkout' %}">Proceed to Checkout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Cart Table -->
+
+    </div> <!-- ...:::: End Cart Section:::... -->
+
+
+
+{% endif %}
+{% endblock %}

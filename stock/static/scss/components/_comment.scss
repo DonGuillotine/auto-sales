@@ -1,0 +1,69 @@
+/*****************************
+Components - Comment
+*****************************/
+
+.comment-list{
+    border-bottom: 1px solid $borderColor;
+    padding-top: 20px;
+    padding-bottom: 15px;
+
+    &:first-child{
+        padding-top: 0;
+    }
+    &:last-child{
+        border: none;
+        padding-bottom: 0;
+    }
+
+    & > .comment-reply {
+        margin-left: 0;
+        @include breakpoint(medium){ margin-left: 100px; }
+
+        li{
+            border-top: 1px solid $borderColor;
+            padding-top: 23px;
+            margin-top: 0px;
+        }
+    }
+}
+
+.comment-wrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+
+    @include breakpoint(small){
+        flex-direction: row;
+    }
+}
+
+.comment-img {
+    margin-right: 30px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+
+    img {
+        width: 78px;
+        height: 78px;
+        border-radius: 5px;
+    }
+}
+
+.comment-content-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.comment-name{
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.comment-content-right{
+ a{
+     i{padding-right: 10px;}
+ }
+}

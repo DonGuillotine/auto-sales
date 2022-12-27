@@ -1,0 +1,106 @@
+{% extends 'base_two.html' %}
+{% block content %}
+{% load static %}
+
+
+{% if request.GET.command == 'verification'%}
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between justify-content-md-between  align-items-center flex-md-row flex-column">
+                        <h3 class="breadcrumb-title">Verify Account</h3>
+                        <div class="breadcrumb-nav">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li class="active" aria-current="page">Verify Account</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- ...:::: Start Error Section :::... -->
+    <div class="error-section">
+        <div class="container">
+            <div class="row">
+                <div class="error_form">
+                    <h4 data-aos="fade-up"  data-aos-delay="200">Verify Your Account</h4>
+                    <p data-aos="fade-up"  data-aos-delay="400">Thank you for registering, an email has been sent to <br> {{request.GET.email}} please verify your account</p>
+                    <div class="row">
+                        <div class="col-10 offset-1 col-md-6 offset-md-3">
+                             <p>Already Verified?</p>
+                            <a href="{% url 'login' %}" data-aos="fade-up"  data-aos-delay="800">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Error Section :::... -->
+
+
+{% else %}
+
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between justify-content-md-between  align-items-center flex-md-row flex-column">
+                        <h3 class="breadcrumb-title">Login</h3>
+                        <div class="breadcrumb-nav">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li class="active" aria-current="page">Login</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+    <!-- ...:::: Start Customer Login Section :::... -->
+    <div class="customer_login">
+        <div class="container">
+            <div class="row justify-content-center">
+                <!--login area start-->
+                <div class="col-lg-6 col-md-6">
+                    <div class="account_form" data-aos="fade-up"  data-aos-delay="0">
+                        <h3>login</h3>
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="default-form-box mb-20">
+                                <label>Username or email <span>*</span></label>
+                                <input type="email" name="email" placeholder="Email Address">
+                            </div>
+                            <div class="default-form-box mb-20">
+                                <label>Passwords <span>*</span></label>
+                                <input type="password" name="password" placeholder="Password" >
+                            </div>
+                            <div class="login_submit">
+                                <button class="mb-20" type="submit">login</button>
+                                <a href="{% url 'forgotPassword' %}">Forgot Password?</a>
+                                <p class="text-center mt-4">Don't have an account? <a style="color: red" href="{% url 'register' %}">Sign up</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!--login area start-->
+            </div>
+        </div>
+    </div> <!-- ...:::: End Customer Login Section :::... -->
+
+
+{% endif %}
+
+{% endblock %}

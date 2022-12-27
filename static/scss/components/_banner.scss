@@ -1,0 +1,127 @@
+/*****************************
+Components - Banner
+*****************************/
+
+.banner-wrapper{
+    margin-bottom: -30px;
+    @include breakpoint(small){ margin-bottom: -30px;}
+    @include breakpoint(large){ margin-bottom: -30px;}
+}
+
+.banner-wrapper > .container > .row > .col-12{
+    margin-bottom: 30px;
+    @include breakpoint(medium){
+        margin-bottom: 30px;
+    }
+} 
+
+.banner-single {
+    position: relative;
+    
+}
+
+.banner-img-link {
+    overflow: hidden;
+    display: block;
+}
+
+.banner-img {
+    object-fit: cover;
+    width: 100%;
+    transition: $baseTransition;
+    transform: scale(1);
+    position: relative;
+}
+
+.banner-img-big {
+   height: 200px;
+
+   @include breakpoint(small){height: 250px;}
+   @include breakpoint(medium){height: 300px;}
+   @include breakpoint(large){height: auto;}
+}
+
+.banner-content {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.banner-text-tiny {
+    display: block;
+    font-size: 16px;
+    color: #939292;
+    font-weight: 500;
+}
+
+.banner-text-small{
+    display: block;
+    font-size: 18px;
+    color: #4e4e4e;
+    font-weight: 500;
+}
+
+.banner-text-large {
+    font-size: 30px;
+    font-weight: 700;
+    margin-top: 6px;
+    margin-bottom: 30px;
+}
+
+.banner-text-big {
+    font-size: 36px;
+    font-weight: 500;
+    margin-top: 6px;
+    margin-bottom: 30px;
+
+    @include breakpoint(large){font-size: 43px;}
+}
+
+.banner-text-big-highlight{
+    color: $themeColor;
+}
+
+.banner-link {
+    color: $themeColor !important;
+    border-bottom: 1px solid;
+    font-weight: 500;
+}
+
+.banner-single:hover .banner-img{
+    transform: scale(1.2);
+}
+
+.banner-single:hover .banner-img-link::after{
+   background: rgba($gray-100 , .5);
+}
+
+
+// 
+.banner-sidebar {
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(medium){
+        flex-direction: row;
+        margin-bottom: -30px;
+    }
+
+    @include breakpoint(large){
+        flex-direction: column;
+    }
+    & .banner-single{
+        margin-right: 0;
+        @include breakpoint(medium){
+            margin-right: 30px;
+        }
+        
+        &:last-child{
+            margin-right: 0;
+        }
+
+        @include breakpoint(large){
+            margin-right: 0;
+        }
+    }
+}

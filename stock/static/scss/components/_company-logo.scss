@@ -1,0 +1,35 @@
+/*****************************
+Layout - Offcanvas
+*****************************/
+
+
+/*Slick Slider - Company Slider*/
+.company-logo-slider{
+    overflow-x: hidden;
+}
+.company-logo-slider .slick-list{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.company-logo-slider .slick-list .slick-slide{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.company-logo-slider{
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.company-logo-single{
+    cursor: pointer;
+    opacity: .3;
+    transition: $baseTransition;
+
+    &:hover{
+        opacity: 1;
+    }
+}
+

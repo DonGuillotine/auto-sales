@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="robots" content="index, follow" />
+    <title>{{title}}</title>
+    <meta name="description" content="Ecommerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Add site Favicon -->
+    <link rel="shortcut icon" href="{% static 'images/favicon/favicon.ico' %}" type="image/png">
+
+
+    <!-- vendor css (Icon Font) -->
+    <link rel="stylesheet" href="{% static 'css/vendor/bootstrap.bundle.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendor/pe-icon-7-stroke.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vendor/font.awesome.css' %}" />
+
+    <!-- plugins css (All Plugins Files) -->
+    <link rel="stylesheet" href="{% static 'css/plugins/animate.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/swiper-bundle.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/jquery-ui.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/nice-select.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/plugins/venobox.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css" />
+     <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=Aefq0LpPXTAPXcvvQtzIOEsgGaGTRRRSVZpqWW8HI2_SRs8jPeWOJ3CjJlmov8VkJAyz_MEUc7zbRVHr&currency=USD"></script>
+<style>
+    button.swal2-confirm a {
+    color: white;
+}
+
+button.swal2-confirm {
+    margin-left: 15px;
+}
+button.swal2-cancel {
+    margin-right: 15px;
+}
+.widget-header a {
+    color: #343a40;
+}
+</style>
+    <!-- Use the minified version files listed below for better performance and remove the files listed above -->
+    <!-- <link rel="stylesheet" href="assets/css/vendor/vendor.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/style.min.css"> -->
+
+    <!-- Main Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+<style>
+    .sidebar-widget-category .menu-link .nav-link .activate a{
+    color: #eaaa85 !important;
+    }
+</style>
+
+</head>
+
+<body>
+
+{% include 'includes/navbar.html' %}
+
+{% block content %}
+
+{% endblock %}
+
+{% include 'includes/footer.html' %}

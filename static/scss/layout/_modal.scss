@@ -1,0 +1,46 @@
+/*****************************
+Layout - Modal
+*****************************/
+
+.modal{
+    z-index: 99999;
+    background: rgba($black, .5);
+    &-dialog{
+        max-width: calc(100% - 20px) !important;
+        margin: 0 auto !important;
+
+        @include breakpoint(medium){
+            max-width: 730px !important;
+        }
+        @include breakpoint(large){
+            max-width: 870px !important;
+        }
+        @include breakpoint(xlarge){
+            min-width: 825px !important;
+        }
+        
+    }
+
+    &-close {
+        width: 40px;
+        height: 40px;
+        border: 1px solid red;
+        border-radius: 50%;
+        color: red;
+        margin-top: 15px;
+    }
+    
+    padding-right: 0 !important;
+
+    // Modal Body
+    &-border{
+        border-left:none;
+        @include breakpoint(large){
+            border-left: 1px solid $borderColor;
+        }
+    }
+
+}
+
+@import "modal/modal-add-cart.scss";
+@import "modal/modal-quick-view";

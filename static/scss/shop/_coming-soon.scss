@@ -1,0 +1,198 @@
+/* 27. coming soon css here */
+.coming_soon_area {
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	background-position: center center;
+	background-size: cover;
+    background-image: url(../images/coming-soon-bg/coming-soon.jpg);
+    position: relative;
+    display: flex;
+    align-items: center;
+    &::before{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background: #000;
+        opacity: 0.15;
+    }
+}
+.coming_soon_title {
+	text-align: center;
+    margin-bottom: 40px;
+    @media #{$large-mobile}{
+        margin-bottom: 36px;
+    }
+    & h2{
+        font-size: 37px;
+        @media #{$large-mobile}{
+            font-size: 22px;
+            margin-bottom: 11px;
+        }
+        text-transform: capitalize;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+    & p{
+        color: #fff;
+        font-size: 16px;
+        max-width: 730px;
+        margin: 0 auto;
+        line-height: 26px;
+        @media #{$small-mobile}{
+            font-size: 14px;
+        }
+    }
+}
+.coming_soon_timing {
+	text-align: center;
+	margin: 57px 0 42px;
+    @media #{$tablet-device}{
+        margin: 50px 0 30px;
+    }
+    @media #{$large-mobile}{
+        margin: 34px 0 22px;
+    }
+    & span {
+        &.cdown{
+            display: inline-block;
+            margin-right: 35px;
+            background: inherit;
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 1;
+            color: #fff;
+            margin-bottom: 8px;
+            width: 60px;
+            height: 40px;
+            line-height: 38px;
+            border: 1px solid #ebebeb;
+            border-radius: 4px;
+            padding-top: 0;
+            font-family: $body-font;
+            @media #{$small-mobile}{
+                margin-right: 20px;
+                width: 55px;
+                font-size: 20px;
+            }
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+    & span{
+        p{
+        font-size: 14px;
+        text-transform: capitalize;
+         color: #fff;
+        }
+    }
+    
+}
+
+.coming_soon_newsletter {
+	text-align: center;
+    & .subscribe_form{
+        margin-top: 0;
+        & form{
+            margin: 0 auto;
+            width: 600px;
+            background: inherit;
+            border: 1px solid #efefef;
+            border-radius: 50px;
+            position: relative;
+            text-align: left;
+            @media #{$large-mobile}{
+                width: 100%;
+            }
+            & input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+               color: #fff;
+            }
+            & input::-moz-placeholder { /* Firefox 19+ */
+               color: #fff;
+            }
+            & input:-ms-input-placeholder { /* IE 10+ */
+               color: #fff;
+            }
+            & input:-moz-placeholder { /* Firefox 18- */
+               color: #fff;
+            }
+            & input{
+                color: #fff;
+                font-size: 16px;
+                padding: 0 140px 0 28px;
+                background: inherit;
+                height: 48px;
+                border: 0;
+                width: 100%;
+                @media #{$large-mobile}{
+                    padding: 0 106px 0 18px;
+                    height: 45px;
+                }
+            }
+            & button{
+                font-size: 16px;
+                text-transform: uppercase;
+                font-weight: 700;
+                background: inherit;
+                color: #fff;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                margin-top: -24px;
+                width: 120px;
+                height: 48px;
+                &:hover{
+                    color: $theme-color;
+                }
+                &::before{
+                    content: "";
+                    background: #fff;
+                    width: 2px;
+                    position: absolute;
+                    bottom: 8px;
+                    top: 8px;
+                    left: 0;
+                    height: 30px;
+                }
+                @media #{$large-mobile}{
+                    font-size: 13px;
+                }
+            }
+        }
+    }
+    
+    & h3 {
+        font-size: 16px;
+        color:  #fff;
+        font-weight: 700;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+        text-transform: capitalize;
+        @media #{$large-mobile}{
+            letter-spacing: 1px;
+        }
+    }
+    & .mailchimp-error {
+        text-align: center;
+        color: #fff;
+    }
+    & .mailchimp-success {
+        text-align: center;
+        color: #fff;
+    }
+}
+.coming_soon_logo {
+    margin-bottom: 32px;
+    @media #{$small-mobile}{
+        margin-bottom: 25px;
+    }
+}
+
+.coming_soon_container {
+    position: relative;
+}

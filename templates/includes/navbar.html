@@ -1,0 +1,293 @@
+{% load static %}
+{% load currency %}
+
+
+
+    <header class="header-section d-lg-block d-none">
+        <!-- Start Header Top Area -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-6">
+                        <div class="header-top--left">
+                             {% if user.id is None %}
+                            <span>Welcome guest!</span>
+                            {% else %}
+                            <span>Welcome {{user.first_name | capfirst}}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="header-top--right">
+                            <!-- Start Header Top Menu -->
+                            <ul class="header-user-menu">
+                                <li><a href="/store"><i class="pe-7s-shopbag"></i> Store</a></li>
+                                {% if user.id is None %}
+                                <li style="display: none !important" class="has-user-dropdown">
+                                    <a href="">Setting</a>
+                                    <!-- Header Top Menu's Dropdown -->
+                                    <ul class="user-sub-menu">
+                                        <li><a href="">Checkout</a></li>
+                                        <li><a href="">My Account</a></li>
+                                        <li><a href="">Shopping Cart</a></li>
+                                        <li><a href="">Wishlist</a></li>
+                                    </ul>
+                                </li>
+                                {% else %}
+                                <li class="has-user-dropdown">
+                                    <a href="">User</a>
+                                    <!-- Header Top Menu's Dropdown -->
+                                    <ul class="user-sub-menu">
+                                        <li><a href="{%url 'dashboard'%}">My Account</a></li>
+                                    </ul>
+                                </li>
+                                {% endif %}
+                                 {% if user.id is None %}
+                                <li class="has-user-dropdown">
+                                    <a href="">Get Started</a>
+                                    <!-- Header Top Menu's Dropdown -->
+                                    <ul class="user-sub-menu">
+                                        <li><a href="{% url 'login' %}">Sign in</a></li>
+                                        <li><a href="{% url 'register' %}">Register</a></li>
+                                    </ul>
+                                </li>
+                                {% else %}
+                                <li><a href="{% url 'logout' %}"><i class="pe-7s pe-7s-power"></i> Logout</a></li>
+                                {% endif %}
+
+                                <li><a href="/store/contact"><i class="pe-7s-headphones"></i> Contact Us</a></li>
+
+                                <li class="has-user-dropdown">
+                                        <a href="">Our Policy</a>
+                                        <!-- Sub Menu -->
+                                        <ul class="user-sub-menu">
+                                            <li><a href="/store/terms">Terms and Conditions</a></li>
+                                            <li><a href="/store/delivery">Shipping Policy</a></li>
+                                            <li><a href="/store/refund">Return Policy</a></li>
+                                            <li><a href="/store/privacy">Privacy Policy</a></li>
+                                        </ul>
+                                    </li>
+
+
+                            </ul> <!-- End Header Top Menu -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Header Top Area -->
+
+        <!-- Start Header Center Area -->
+        <div class="header-center">
+            <div class="container">
+                <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-2">
+                        <!-- Logo Header -->
+                        <div class="header-logo">
+                            <a href="/"><img style="height: auto; width: 100px;" src="https://cdn.jsdelivr.net/gh/DonGuillotine/aments/assets/images/icon/web_name.PNG" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <!-- Start Header Search -->
+                        <div class="header-search">
+                            <form action="{% url 'search' %}" method="GET" role="search">
+                                <div class="header-search-box default-search-style d-flex">
+                                    <input type="text" name="my-search" class="default-search-style-input-box border-around border-right-none" placeholder="Search entire store here ..." required>
+                                    <button class="default-search-style-input-btn" type="submit"><i class="icon-search"></i></button>
+                                </div>
+                            </form>
+                        </div> <!-- End Header Search -->
+                    </div>
+                    <div class="col-6 text-end">
+                        <!-- Start Header Action Icon -->
+                        <ul class="header-action-icon">
+                            <li>
+                                <a href="{% url 'cart' %}" class="">
+                                    <i class="icon-shopping-cart"></i>
+                                    <span class="header-action-icon-item-count">{{cart_count}}</span>
+                                </a>
+                            </li>
+                             <li>
+                                 <form id="currency_switcher" method="POST" action="{% url 'selectcurrency' %}">
+                                        {% csrf_token %}
+                                        <select name="currency" onchange="submit()" >
+                                            {% for curr in CURRENCIES %}
+                                                <option value="{{ curr.code }}"
+                                                        {% ifequal curr.code request.session.currency %}selected="selected"{% endifequal %}>
+                                                    {{ curr.symbol }} {{ curr.name }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+
+                                        <noscript>
+                                            <input type="submit" value="Set" />
+                                        </noscript>
+
+                                    </form>
+                            </li>
+                            <li>
+                                <form id="currency_switcher" method="POST" action="{% url 'savelangcur' %}">
+                                        {% csrf_token %}
+                                        <input style="padding: 15px 28px;" class="contact-submit-btn" type="submit" value="Save" />
+                                    </form>
+                            </li>
+                        </ul> <!-- End Header Action Icon -->
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Header Center Area -->
+
+
+    </header>
+  <!-- ...:::: Start Mobile Header Section:::... -->
+    <div class="mobile-header-section d-block d-lg-none">
+        <!-- Start Mobile Header Wrapper -->
+        <div class="mobile-header-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between align-items-center">
+                        <div class="mobile-header--left">
+                             <a href="/" class="mobile-logo-link">
+                                <img style="height: auto; width: 110px;" src="https://cdn.jsdelivr.net/gh/DonGuillotine/aments/assets/images/icon/web_name.PNG" alt="" class="mobile-logo-img">
+                            </a>
+                        </div>
+                        <div class="mobile-header--right">
+                            <a href="#mobile-menu-offcanvas" class="mobile-menu offcanvas-toggle">
+                                <span class="mobile-menu-dash"></span>
+                                <span class="mobile-menu-dash"></span>
+                                <span class="mobile-menu-dash"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Mobile Header Wrapper -->
+    </div> <!-- ...:::: Start Mobile Header Section:::... -->
+
+
+    <!-- ...:::: Start Offcanvas Mobile Menu Section:::... -->
+    <div id="mobile-menu-offcanvas" class="offcanvas offcanvas-leftside offcanvas-mobile-menu-section">
+        <!-- Start Offcanvas Header -->
+        <div class="offcanvas-header d-flex justify-content-end">
+            <button class="offcanvas-close"><i class="fa fa-times"></i></button>
+        </div> <!-- End Offcanvas Header -->
+        <!-- Start Offcanvas Mobile Menu Wrapper -->
+        <div class="offcanvas-mobile-menu-wrapper">
+            <span>Choose Currency</span>
+             <form id="currency_switcher" method="POST" action="{% url 'selectcurrency' %}">
+                {% csrf_token %}
+                <select name="currency" onchange="submit()" >
+                    {% for curr in CURRENCIES %}
+                        <option value="{{ curr.code }}"
+                                {% ifequal curr.code request.session.currency %}selected="selected"{% endifequal %}>
+                            {{ curr.symbol }} {{ curr.name }}
+                        </option>
+                    {% endfor %}
+                </select>
+
+                <noscript>
+                    <input type="submit" value="Set" />
+                </noscript>
+
+            </form>
+
+            <form style="margin-bottom: 37px" class="mt-10" id="currency_switcher" method="POST" action="{% url 'savelangcur' %}">
+                                        {% csrf_token %}
+                                        <input style="width: auto" class="contact-submit-btn" type="submit" value="Save" />
+                                    </form>
+
+            <!-- Start Mobile Menu User Top -->
+            <div style="margin-bottom: 10px" class="mobile-menu-top">
+                {% if user.id is None %}
+                <span>Welcome guest!</span>
+                {% else %}
+                <span>Welcome {{user.first_name | capfirst}}</span>
+                {% endif %}
+            </div> <!-- End Mobile Menu User Top -->
+            <!-- Start Mobile Menu User Center -->
+            <div class="mobile-menu-center">
+                <form style="margin-bottom: 10px" action="{% url 'search' %}" method="GET" role="search">
+                    <div class="header-search-box default-search-style d-flex">
+                        <input type="text" name="my-search" class="default-search-style-input-box border-around border-right-none" placeholder="Search entire store here ..." required>
+                        <button class="default-search-style-input-btn" type="submit"><i class="icon-search"></i></button>
+                    </div>
+                </form>
+                <div class="mobile-menu-customer-support">
+                    <div class="mobile-menu-customer-support-icon">
+                        <img src="{% static 'images/icon/support-icon.png' %}" alt="">
+                    </div>
+                    <div class="mobile-menu-customer-support-text">
+                        <span>Customer Support</span>
+                        <a class="mobile-menu-customer-support-text-phone" href="tel:(+234)7026374012">(+234)7026374012</a>
+                    </div>
+                </div>
+                <!-- Start Header Action Icon -->
+                <ul class="mobile-action-icon">
+                    <li class="mobile-action-icon-item">
+                        <a href="{% url 'cart' %}" class="mobile-action-icon-link">
+                            <i class="icon-shopping-cart"></i>
+                            <span class="mobile-action-icon-item-count">{{cart_count}}</span>
+                        </a>
+                    </li>
+                    <li style="display: none !important" class="mobile-action-icon-item">
+                        <a href="wishlist.html" class="mobile-action-icon-link">
+                            <i class="icon-heart"></i>
+                            <span class="mobile-action-icon-item-count">3</span>
+                        </a>
+                    </li>
+                </ul> <!-- End Header Action Icon -->
+            </div> <!-- End Mobile Menu User Center -->
+            <!-- Start Mobile Menu Bottom -->
+            <div class="mobile-menu-bottom">
+                <!-- Start Mobile Menu Nav -->
+                <div class="offcanvas-menu">
+                    <ul>
+                                <li><a href="/store">Store</a></li>
+                                {% if user.id is None %}
+                                <li style="display: none !important">
+                                    <a href="">Setting</a>
+                                    <!-- Header Top Menu's own -->
+                                    <ul class="mobile-sub-menu">
+                                        <li><a href="">Checkout</a></li>
+                                        <li><a href="">My Account</a></li>
+                                        <li><a href="">Shopping Cart</a></li>
+                                        <li><a href="">Wishlist</a></li>
+                                    </ul>
+                                </li>
+                                {% else %}
+                                <li><a href="{%url 'dashboard'%}">My Account</a></li>
+                                {% endif %}
+                                 {% if user.id is None %}
+
+                                <li><a href="{% url 'login' %}">Sign in</a></li>
+                                <li><a href="{% url 'register' %}">Register</a></li>
+
+                                {% else %}
+                                <li><a href="{% url 'logout' %}">Logout</a></li>
+                                {% endif %}
+                                <li><a href="/store/contact">Contact Us</a></li>
+
+                                 <li>
+                                        <a href="javascript:void()">Our Policy</a>
+                                        <!-- Sub Menu -->
+                                        <ul class="mobile-sub-menu">
+                                            <li><a href="/store/terms">Terms and Conditions</a></li>
+                                            <li><a href="/store/delivery">Shipping Policy</a></li>
+                                            <li><a href="/store/refund">Return Policy</a></li>
+                                            <li><a href="/store/privacy">Privacy Policy</a></li>
+                                        </ul>
+                                    </li>
+                    </ul>
+                </div> <!-- End Mobile Menu Nav -->
+
+                <!-- Mobile Manu Mail Address -->
+                <a class="mobile-menu-email icon-text-end" href="support@dapperautoparts.com"><i class="fa fa-envelope-o"> support@dapperautoparts.com</i></a>
+
+                <!-- Mobile Manu Social Link -->
+                <ul class="mobile-menu-social">
+                    <li><a href="https://www.instagram.com/dapperautoparts/" class="instagram"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+            </div> <!-- End Mobile Menu Bottom -->
+        </div> <!-- End Offcanvas Mobile Menu Wrapper -->
+    </div> <!-- ...:::: End Offcanvas Mobile Menu Section:::... -->
+
+

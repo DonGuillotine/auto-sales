@@ -1,0 +1,322 @@
+.service-left {
+	position: relative;
+	z-index: 1;
+	&-image {
+		max-width: 100%;
+		display: block;
+		border-radius: 50%;
+		@media #{$tablet-device, $large-mobile}{
+			margin: auto;
+		}
+	}
+	&-image-2 {
+		position: absolute;
+		left: auto;
+		right: 25px;
+		z-index: -1;
+		top: 25px;
+		@media #{$desktop-device}{
+			top: 0;
+			right: 0;
+			width: 85%;
+			max-width: 100%;
+		}
+		@media #{$tablet-device}{
+			top: 23px;
+			right: 15%;
+			max-width: 100%;
+		}
+		@media #{$small-mobile} {
+			display: none;
+		}
+	}
+}
+.service-area {
+	.service-right-content {
+		@media #{$tablet-device, $large-mobile} {
+			margin-top: 80px;
+		}
+		.title {
+			font-size: 36px;
+			color: #4a4a4a;
+			font-weight: 500;
+			margin: 0 0 30px;
+			line-height: 50px;
+			@media #{$tablet-device, $large-mobile} {
+				font-size: 24px;
+				line-height: 36px;
+			}
+		}
+		.para-1 {
+			color: #5e5e5e;
+			font-weight: 500;
+			font-size: 18px;
+			line-height: 30px;
+			margin: 0 0 25px;
+		}
+		.para-2 {
+			color: #5e5e5e;
+			font-weight: 400;
+			font-size: 16px;
+			line-height: 28px;
+			margin: 0 0 45px;
+		}
+		.mision-vision {
+			.mision {
+				margin-bottom: 40px;
+			}
+			.mision,
+			.vision {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				
+				@media #{$small-mobile} {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+
+				.heading {
+					flex: 0 0 auto;
+					width: 235px;
+					font-size: 30px;
+					color: #4a4a4a;
+					padding-left: 20px;
+					position: relative;
+					@media #{$small-mobile}{
+
+					}
+					&::after {
+						position: absolute;
+						top: 50%;
+						left: 0;
+						width: 10px;
+						height: 4px;
+						content: "";
+						background-color: #000000;
+						margin-top: -2.5px;
+					}
+				}
+				&-desc {
+					flex: 0 0 auto;
+					width: calc(100% - 235px);
+					color: #747474;
+					line-height: 30px;
+					@media #{$small-mobile}{
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+.promo-video {
+	border-radius: 50%;
+	position: relative;
+	& .overlay-box {
+		width: 98px;
+		height: 98px;
+		transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+		-webkit-transition: all 0.3s ease;
+		-ms-transition: all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		position: absolute;
+		left: 40px;
+		top: -70px;
+		@media #{$tablet-device}{
+		left: 35%;
+		}
+
+		& span {
+			position: absolute;
+			width: 98px;
+			height: 98px;
+			left: 50%;
+			top: 50%;
+			z-index: 10;
+			color: #fff;
+			font-weight: 400;
+			font-size: 38px;
+			border-radius: 50%;
+			margin-top: -49px;
+			margin-left: -49px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: all 900ms ease;
+			-moz-transition: all 900ms ease;
+			-webkit-transition: all 900ms ease;
+			-ms-transition: all 900ms ease;
+			-o-transition: all 900ms ease;
+			background-color: $theme-color;
+			@media #{$extra-small-mobile} {
+				width: 60px;
+				height: 60px;
+				margin-top: -30px;
+				margin-left: -30px;
+				font-size: 14px;
+			}
+		}
+	}
+}
+.ripple,
+.ripple:before,
+.ripple:after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 98px;
+	height: 98px;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	-ms-border-radius: 50%;
+	-o-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-box-shadow: 0 0 0 0 rgb(230 167 131 / 80%);
+	-moz-box-shadow: 0 0 0 0 rgba(230, 167, 131, 0.8);
+	-ms-box-shadow: 0 0 0 0 rgba(230, 167, 131, 0.8);
+	-o-box-shadow: 0 0 0 0 rgba(230, 167, 131, 0.8);
+	box-shadow: 0 0 0 0 rgb(230 167 131 / 80%);
+	-webkit-animation: ripple 3s infinite;
+	-moz-animation: ripple 3s infinite;
+	-ms-animation: ripple 3s infinite;
+	-o-animation: ripple 3s infinite;
+	animation: ripple 3s infinite;
+	@media #{$extra-small-mobile} {
+		width: 60px;
+		height: 60px;
+	}
+}
+.ripple:before {
+	-webkit-animation-delay: 0.9s;
+	-moz-animation-delay: 0.9s;
+	-ms-animation-delay: 0.9s;
+	-o-animation-delay: 0.9s;
+	animation-delay: 0.9s;
+	content: "";
+	position: absolute;
+}
+.ripple:after {
+	-webkit-animation-delay: 0.6s;
+	-moz-animation-delay: 0.6s;
+	-ms-animation-delay: 0.6s;
+	-o-animation-delay: 0.6s;
+	animation-delay: 0.6s;
+	content: "";
+	position: absolute;
+}
+
+/* Video  Icon Shadow Animation */
+
+@-webkit-keyframes ripple {
+	70% {
+		box-shadow: 0 0 0 70px rgba(37, 24, 24, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
+
+@keyframes ripple {
+	70% {
+		box-shadow: 0 0 0 70px rgba(255, 255, 255, 0);
+	}
+	100% {
+		box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+	}
+}
+.team-wrapper {
+	.team-image {
+		& img {
+			max-width: 100%;
+			transition: $baseTransition;
+			width: 100%;
+		}
+	}
+	.team-inner {
+		margin-top: -30px;
+		padding: 20px 0px 20px 30px;
+		transition: $baseTransition;
+		background-color: $white;
+		position: relative;
+		.team-content {
+			text-align: left;
+			line-height: 1;
+			.title {
+				font-size: 18px;
+				color: #393939;
+				font-weight: 500;
+				text-transform: uppercase;
+				transition: $baseTransition;
+			}
+			.sub-title {
+				font-size: 16px;
+				font-weight: 400;
+				color: #808080;
+				text-transform: uppercase;
+				margin: 9px 0 27px;
+				display: block;
+				transition: $baseTransition;
+			}
+		}
+		.team-social {
+			justify-content: flex-start;
+			li + li {
+				margin-left: 10px;
+			}
+			li {
+				a {
+					width: 36px;
+					height: 36px;
+					background-color: $white;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+					color: $white;
+					font-size: 14px;
+					position: relative;
+					overflow: hidden;
+					z-index: 1;
+					margin-top: -1px;
+					border-radius: 5px;
+					transition: $baseTransition;
+				}
+			}
+		}
+	}
+	&:hover {
+		& .team-image {
+			& img {
+				transform: scale(1.1) rotate(3deg);
+			}
+		}
+		.team-inner {
+			margin-left: 40px;
+			background-color: $theme-color;
+			@media #{$large-mobile}{
+				margin-left: 30px;
+			}
+			.title {
+				color: $white;
+			}
+			.sub-title {
+				color: $white;
+			}
+			.team-social {
+				li {
+					a {
+						background-color: $white;
+						color: $theme-color;
+					}
+				}
+			}
+		}
+	}
+}

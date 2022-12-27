@@ -1,0 +1,30 @@
+//=======================
+// Developer Variable
+//=======================
+// Font Family
+$Rubik: 'Rubik', sans-serif;
+//iconfont
+$Pe-icon-7-stroke:'Pe-icon-7-stroke';
+//body font
+$body-font: $Rubik;
+//heading font
+$heading-font: $Rubik;
+//color 
+$white:#fff;
+$body-color:#474747;
+$heading-color:#000;
+$black:#000;
+$theme-color:#eaaa85;
+$prymary:#eaaa85;
+// Transition
+$baseTransition: all 0.3s ease 0s;
+
+
+// Responsive Variables
+$extraBig-device: "only screen and (min-width: 1600px)";
+$laptop-device: "only screen and (min-width: 1200px) and (max-width: 1599px)";
+$desktop-device: "only screen and (min-width: 992px) and (max-width: 1199px)";
+$tablet-device: "only screen and (min-width: 768px) and (max-width: 991px)";
+$large-mobile: "only screen and (max-width: 767px)";
+$small-mobile: "only screen and (max-width: 575px)";
+$extra-small-mobile: "only screen and (max-width: 479px)";

@@ -1,0 +1,42 @@
+/*****************************
+Components - Sidebar Widget
+*****************************/
+.siderbar-section{
+    margin-top: 60px;
+    @include breakpoint(medium){
+        margin-top: 80px;
+    }
+    @include breakpoint(large){
+        margin-top: 0;
+    }
+}
+.sidebar-single-widget{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-bottom: 37px;
+    border-bottom: 2px solid $gray-100;
+    &:first-child{
+        margin-top: 0px;
+    }
+    &:last-child{
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+.sidebar-title{
+    text-transform: capitalize;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.sidebar-banner {
+    margin: 0 auto;
+    display: block;
+}
+
+@import "sidebar-widgets/price-range";
+@import "sidebar-widgets/select-type";
+@import "sidebar-widgets/tag-link";
+@import "sidebar-widgets/recent-post";
+

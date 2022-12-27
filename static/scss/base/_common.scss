@@ -1,0 +1,166 @@
+/*****************************
+Base - Default
+*****************************/
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+    &:-moz-placeholder {
+        @content;
+    }
+    &::-moz-placeholder {
+        @content;
+    }
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+/*-- Google Font --*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*-- Common Style --*/
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+}
+body {
+    font-family: $body-font;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 1.75;
+
+    position: relative;
+
+    visibility: visible;
+
+    color: $bodyColor;
+    &[dir="rtl"] {
+        text-align: right;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    font-family: $heading-font;
+    color: $headingColor;
+}
+
+
+ol, ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a{
+    color: $bodyColor;
+    text-decoration: none;
+    transition: $baseTransition;
+    outline: none;
+    &:hover{
+        color: $themeColor;
+    }
+}
+
+input, button{
+    border: none ;
+    outline: none !important;
+    background: none;
+    box-shadow: none;
+}
+
+input{width: 100%;}
+
+.icon-text-left{
+    i{padding-left: 7px;}
+}
+.icon-text-right{
+    i{padding-right: 7px;}
+}
+
+/*Custom Border CSS*/
+
+.border-around{
+    border: 2px solid $borderColor;
+}
+
+.border-left-none{
+    border-left: transparent
+}
+.border-right-none{
+    border-right: transparent
+}
+.border-top-none{
+    border-top: transparent
+}
+.border-bottom-none{
+    border-bottom: transparent
+}
+
+/* Section CSS*/
+.section-top-gap-100{
+    margin-top: 60px;
+    @include breakpoint(medium){
+        margin-top: 80px;
+    }
+    @include breakpoint(large){
+        margin-top: 100px;
+    }
+}
+
+.section-inner-bg{
+    background: $gray-100;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    @include breakpoint(medium){
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    @include breakpoint(large){
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+.section-content-gap{
+    margin-bottom: 50px;
+}
+
+.section-title{
+    font-size: 26px;
+    font-weight: 700;
+    position: relative;
+    margin-top: -7px;
+
+    @include breakpoint(medium){
+        font-size: 30px;
+    }
+
+    &::after{
+        position: absolute;
+        content: "";
+        width: 100px;
+        height: 2px;
+        background: $themeColor;
+        left: 0;
+        bottom: -15px;
+    }
+}
+
+.facebook{background: $facebook;}
+.twitter{background: $twitter;}
+.pinterest{background: $pinterest;}
+.google-plus{background: $googlePlus;}
+.linkedin{background: $linkedin;}

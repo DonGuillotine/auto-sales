@@ -1,0 +1,44 @@
+/*****************************
+Components - Testimonial
+*****************************/
+.testimonial-section{
+    text-align: center;
+}
+
+.testimonial-title{
+    margin-bottom: 20px;
+}
+.testimonial-slider-single{
+
+    p{
+        padding: 0 0;
+        line-height: 26px;
+        margin-bottom: 20px;
+        @include breakpoint(medium){padding: 0 2%;}
+        @include breakpoint(large){padding: 0 8%;}
+        @include breakpoint(xlarge){padding: 0 12%;}
+    }
+
+    .testimonial-img{
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        img{
+            width: 100%;
+            display: inline-block;
+            border-radius: 50%;
+        }
+    }   
+    
+
+    .name{
+        display: block;
+        font-weight: 700;
+        margin-top: 12px;
+    }
+    .job-title{
+        display: block;
+        margin-top: 18px;
+        margin-bottom: 18px;
+    }
+}

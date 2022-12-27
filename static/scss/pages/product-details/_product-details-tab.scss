@@ -1,0 +1,51 @@
+// Product Details Tab
+.product-details-content-tab-wrapper {
+    background: white;
+    padding: 0 30px;
+}
+
+.product-details-content-tab-btn {
+    padding: 25px 0;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 1px solid #ddd;
+}
+
+.product-details-content-tab {
+    padding: 40px 0;
+}
+
+.review-form-text-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-direction: column;
+    @include breakpoint(large){
+        flex-direction: row;
+        align-items: center;
+    }
+    margin-top: 35px;
+    h5 {
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+
+.form-submit-btn{
+    border: none;
+    background: $headingColor;
+    color: #ffffff;
+    text-transform: capitalize;
+    font-weight: 500;
+    padding: 10px 20px;
+    display: block;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+    cursor: pointer;
+    margin-top: 10px;
+    border-radius: 5px;
+
+    &:hover{
+        background: $themeColor;
+    }
+}

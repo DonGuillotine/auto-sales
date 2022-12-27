@@ -1,0 +1,45 @@
+/*****************************
+Components - Breadcrumb
+*****************************/
+.breadcrumb-wrapper{
+   padding-top: 60px;
+   padding-bottom: 60px;
+   background: $gray-100;
+   margin-bottom: 60px;
+   @include breakpoint(medium){margin-bottom: 80px}
+   @include breakpoint(large){margin-bottom: 100px}
+}
+
+.breadcrumb-nav{
+
+    li{
+        display: inline-block;
+        margin-right: 30px;
+        position: relative;
+        a{
+            color: $gray-500;
+            &:hover{color: $themeColor;}
+        }
+        .active{
+            color: $bodyColor;
+        }
+
+        &::after{
+            position: absolute;
+            content: "/";
+            left: calc(100% + 15px);
+        }
+
+        &:last-child{
+            margin-right: 0;
+            &::after{
+                display: none;
+            }
+        }
+        
+    }
+}
+
+.sort-layout-single > .row > .col-12{
+    margin-top: 30px;
+}

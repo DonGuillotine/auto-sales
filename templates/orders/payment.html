@@ -1,0 +1,247 @@
+{% extends 'base_two.html' %}
+{% block content %}
+{% load static %}
+{% load currency %}
+
+<style>
+    .img-responsive {
+    max-width: 50%;
+    display: block;
+    width: 100%;
+}
+</style>
+
+    <!-- ...:::: Start Breadcrumb Section:::... -->
+    <div class="breadcrumb-section">
+        <div class="breadcrumb-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-between justify-content-md-between  align-items-center flex-md-row flex-column">
+                        <h3 class="breadcrumb-title">Payments</h3>
+                        <div class="breadcrumb-nav">
+                            <nav aria-label="breadcrumb">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li class="active" aria-current="page">Payments</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- ...:::: End Breadcrumb Section:::... -->
+
+
+<!-- ...::::Start Contact Section:::... -->
+    <div class="contact-section">
+        <div class="container">
+            <h3 class="cart-page-title">Review Your Order and Make Payments</h3>
+            <div class="row">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-12">
+                    <div class="contact-form section-top-gap-100" data-aos="fade-up"  data-aos-delay="200">
+                        <h3>Get In Touch</h3>
+                         <div class="checkout-area pb-100">
+                            <div class="card">
+                              <h5 class="card-header">Billing Address</h5>
+                              <div class="card-body">
+                                <p class="card-text">{{order.full_name}}</p>
+                                  <p class="card-text">{{order.addresses}}</p>
+                                  <p class="card-text">{{order.city}}, {{order.state}}</p>
+                                  <p class="card-text">{{order.country}}</p>
+                                  <p class="card-text">{{order.email}}</p>
+                                  <p class="card-text">{{order.phone}}</p>
+                                  {% if order.order_note %}
+                                  <p class="card-text">{{order.order_note}}</p>
+                                  {% endif %}
+                              </div>
+                            </div>
+                        </div>
+
+                         <div class="checkout-area pb-100">
+                            <div class="card">
+                              <h5 class="card-header">Payment Method</h5>
+                              <div class="card-body">
+                                <p class="card-text"><img src="{% static 'images/icons/paypal.png' %}" height="26"></p>
+                              </div>
+                            </div>
+                        </div>
+
+                        <div class="checkout-area pb-100px">
+                            <div class="card">
+                              <h5 class="card-header">Review Product</h5>
+                              <div class="card-body">
+                                  <div style="overflow: hidden" class="order_table table-responsive">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Price</th>
+                                            <th>Qty</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for cart_item in cart_items %}
+                                    <tr>
+                                        <td class="product-thumbnail">
+                                             <div>
+                                            <a href="#"><img class="img-responsive ml-15px"
+                                                    src="{{ cart_item.product.images.url }}" alt="" /></a>
+                                             <a class="mon" href="{{cart_item.product.get_url}}">{{cart_item.product.product_name}}</a>
+                                            <p class="text-muted small">
+                                                {% if cart_item.variations.all %}
+                                                    {% for item in cart_item.variations.all %}
+                                                        {{ item.variation_category | capfirst }} : {{item.variation_value | capfirst }} <br>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </p>
+                                            </div>
+                                        </td>
+
+                                        <td class="product-price-cart">
+                                            <span class="amount">{{ cart_item.sub_total|currency:request.session.currency }} {{ request.session.currency }}</span>
+                                            <p class="text-muted small">{{ cart_item.product.price|currency:request.session.currency }} {{ request.session.currency }} each</p>
+                                        </td>
+                                        <td>
+                                             {{cart_item.quantity}}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div class="col-lg-3 col-md-12 mt-md-30px">
+
+                      <div class="coupon_code mt-0"  data-aos="fade-up"  data-aos-delay="400">
+                            <h3>Cart Total</h3>
+                            <div class="coupon_inner">
+                                <div class="cart_subtotal">
+                                    <p>Total products</p>
+                                    <p class="cart_amount">{{ total|currency:request.session.currency }} {{ request.session.currency }}</p>
+                                </div>
+                                 <div class="cart_subtotal">
+                                    <p>Tax</p>
+                                    <p class="cart_amount">{{ tax|currency:request.session.currency }} {{ request.session.currency }}</p>
+                                </div>
+                                <div class="cart_subtotal">
+                                    <p>Grand Total </p>
+                                    <p class="cart_amount">{{ grand_total|currency:request.session.currency }} {{ request.session.currency }}</p>
+                                </div>
+                                  <script src="https://pay.fasterpay.com/pay.js"
+                                    amount="{{ grand_total|currency:request.session.currency }}"
+                                    currency="{{ request.session.currency }}"
+                                    description="Making an Order"
+                                    merchant="208c574bc29f70d5fa39fcc0877a3e01"
+                                    success_url="https://dapperautoparts.com{% url 'order_complete' %}"
+                                    size="md"
+                                    target="newWindow">
+                                  </script>
+
+
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- ...::::ENd Contact Section:::... -->
+
+
+
+<script>
+// FUNCTION TO GENERATE CSRF TOKEN TO AVIOID ERRORS
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+
+        var amount = "{{grand_total}}"
+		var url = "{% url 'payments' %}"
+		var csrftoken = getCookie('csrftoken');
+		var orderID = "{{order.order_number}}";
+		var payment_method = 'Paypal'
+		var redirect_url = "{% url 'order_complete' %}"
+
+        // Render the PayPal button into #paypal-button-container
+        paypal.Buttons({
+              style: {
+                color:  'blue',
+                shape:  'rect',
+                label:  'pay',
+                height: 40
+            },
+
+
+            // Set up the transaction
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: amount
+                        }
+                    }]
+                });
+            },
+
+            // Finalize the transaction
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
+                    // Successful capture! For demo purposes:
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+                    var transaction = orderData.purchase_units[0].payments.captures[0];
+                    // THIS FUNCTION DOES A FETCH TO GET DETAILS FROM PAYPAL'S INFO, WE WILL CATCH THIS AND SAVE IT IN THE ORDERS/PAYMENTS VIEW FUNCTION
+                    sendData();
+                    function sendData(){
+						fetch(url, {
+							method: "POST",
+							headers: {
+								"Content-type": "application/json",
+								"X-CSRFTOKEN": csrftoken,
+							},
+							body: JSON.stringify({
+								orderID: orderID,
+								transID: orderData.id,
+								payment_method: payment_method,
+								status: orderData.status,
+							}),
+						})    // IF SUCCESS AND ORDER NUMBER AND PAYMENT ID-> REDIRECT THE USER TO THE ORDER SUCCESS PAGE
+						      // data.payment_id and data.order_number is from the place order function -> comment 8
+							 .then((response) => response.json())
+							 .then((data) => {
+							    window.location.href = redirect_url + '?order_number='+data.order_number+'&payment_id='+data.transID;
+							 });
+					}
+
+                    // Replace the above to show a success message within this page, e.g.
+                    // const element = document.getElementById('paypal-button-container');
+                    // element.innerHTML = '';
+                    // element.innerHTML = '<h3>Thank you for your payment!</h3>';
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+                });
+            }
+
+
+        }).render('#paypal-button-container');
+    </script>
+
+
+{% endblock %}

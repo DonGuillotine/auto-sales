@@ -1,0 +1,173 @@
+/*****************************
+Components - Hero
+*****************************/
+.hero-img{
+    width: 100%;
+    object-fit: cover;
+    height: 360px;
+    @include breakpoint(small){height: 480px ;}
+    @include breakpoint(xlarge){height: 630px ;}
+}
+
+.hero-img-2{
+    width: 100%;
+    object-fit: cover;
+    height: 360px;
+    overflow: hidden;
+    margin-top: 0px;
+    @include breakpoint(large){
+        height: 405px ;
+        margin-top: 30px;
+    }
+    @include breakpoint(xlarge){height: auto ;}
+}
+
+.hero-area-single{
+    position: relative;
+}
+
+.hero-content{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: translateY(-50%);
+    color: $black;
+
+    h5{
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 1px;
+    }
+
+    h2{
+        font-size: 36px;
+        font-weight: 700;
+        position: relative;
+        @include breakpoint(small){
+            font-size: 50px;
+        }
+        @include breakpoint(medium){
+            font-size: 60px;
+        }
+        @include breakpoint(large){
+            font-size: 68px;
+        }
+        @include breakpoint(xlarge){
+            font-size: 79px;
+        }
+        &::after{
+            position: absolute;
+            content: "";
+            width: 100px;
+            height: 2px;
+            background: #ea1c26;
+            left: 0;
+            bottom: 0;
+        }
+    }
+
+    p{
+        font-size: 16px;
+        margin-top: 12px;
+        margin-bottom: 38px;
+    }
+    
+}
+
+.hero-button{
+    background: #ea1c26;
+    display: inline-block;
+    color: $white !important;
+    padding: 10px 15px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    @include breakpoint(small){
+        padding: 15px 30px;
+    }
+    @include breakpoint(xlarge){
+        padding: 20px 40px;
+    }
+    &::after{
+        position: absolute;
+        content: "";
+        width: 0%;
+        height: 100%;
+        top: 0;
+        left: auto;
+        right: 0;
+        transition: $baseTransition;
+        z-index: -1;
+        background: $black;
+    }
+}
+
+.hero-button:hover::after{
+    width: 100%;
+    left: 0;
+    right: auto;
+}
+
+.hero-content-2{
+
+    h5{
+        margin-bottom: 4px;
+    }
+
+    h2{
+        font-size: 36px;
+        @include breakpoint(small){
+            font-size: 50px;
+        }
+        @include breakpoint(medium){
+            font-size: 60px;
+        }
+        @include breakpoint(large){
+            font-size: 68px;
+        }
+        @include breakpoint(xlarge){
+            font-size: 72px;
+        }
+        &::after{
+            display: none;
+        }
+    }
+
+    p{  
+        font-size: 16px;
+        margin-top: 5px;
+        margin-bottom: 38px;
+        @include breakpoint(small){
+            margin-top: -10px;
+        }
+    }
+
+    .hero-button{
+        padding: 10px 15px;
+        @include breakpoint(small){
+            padding: 15px 30px;
+        }
+        @include breakpoint(xlarge){
+            padding: 15px 30px;
+        }
+    }
+
+}
+
+
+
+.hero-area-wrapper .hero-area-single.slick-active h5{
+    animation: fadeInLeft 1s ease 0s 1 backwards;
+}
+.hero-area-wrapper .hero-area-single.slick-active h2{
+    animation: fadeInLeft 1s ease .3s 1 backwards;
+}
+.hero-area-wrapper .hero-area-single.slick-active p{
+    animation: fadeInLeft 1s ease .5s 1 backwards;
+}
+.hero-area-wrapper .hero-area-single.slick-active .hero-button{
+    animation: fadeInLeft 1s ease .7s 1 backwards;
+}
+

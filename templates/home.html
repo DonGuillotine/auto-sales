@@ -1,0 +1,213 @@
+{% extends 'base_two.html' %}
+{% block content %}
+{% load static %}
+{% load currency %}
+
+
+    <div class="offcanvas-overlay"></div>
+
+    <!-- ...:::: Start Hero Area Section:::... -->
+    <div class="hero-area">
+        <div class="hero-area-wrapper hero-slider-dots fix-slider-dots">
+            {% for banners in banner %}
+            <!-- Start Hero Slider Single -->
+            <div class="hero-area-single">
+                <div class="hero-area-bg">
+                    <img class="hero-img" src="{{ banners.image.url }}" alt="">
+                </div>
+                <div class="hero-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-10 col-md-8 col-xl-6">
+                                <h5>{{banners.subtitle}}</h5>
+                                <h2>{{banners.heading}}</h2>
+                                <p>{{banners.description}}</p>
+                                <a href="/store" class="hero-button">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- End Hero Slider Single -->
+          {% endfor %}
+        </div>
+    </div> <!-- ...:::: End Hero Area Section:::... -->
+
+    <!-- ...:::: Start Product Catagory Section:::... -->
+    <div class="product-catagory-section section-top-gap-100">
+        <!-- Start Section Content -->
+        <div class="section-content-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="section-content">
+                        <h3 class="section-title" data-aos="fade-up" data-aos-delay="50">Popular Categories</h3>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End Section Content -->
+
+        <!-- Start Catagory Wrapper -->
+        <div class="product-catagory-wrapper">
+            <div class="container">
+                <div class="row">
+
+                   {% for category in links %}
+                    <div class="col-lg-3 col-md-4 col-sm-6 col-12">
+                        <!-- Start Product Catagory Single -->
+                        <a href="{{ category.get_url }}" class="product-catagory-single" data-aos="fade-up"  data-aos-delay="200">
+                            <div class="product-catagory-img">
+                                <img src="{{ category.category_image.url }}" alt="">
+                            </div>
+                            <div class="product-catagory-content">
+                                <h5 class="product-catagory-title">{{ category.category_name }}</h5>
+                            </div>
+                        </a> <!-- End Product Catagory Single -->
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div> <!-- End Catagory Wrapper -->
+    </div> <!-- ...:::: End Product Catagory Section:::... -->
+
+    <!-- ...:::: Start Shop Section:::... -->
+    <div class="shop-section mt-100">
+        <div class="container">
+            <div class="row flex-column-reverse flex-lg-row">
+                <div class="col-lg-12">
+                    <!-- Start Shop Product Sorting Section -->
+                    <div class="shop-sort-section" data-aos="fade-up"  data-aos-delay="0">
+                        <div class="container">
+                            <div class="row">
+                                <!-- Start Sort Wrapper Box -->
+                                <div class="sort-box d-flex justify-content-between align-items-center flex-wrap">
+                                    <!-- Start Sort tab Button -->
+                                    <div class="sort-tablist">
+                                        <ul class="tablist nav sort-tab-btn">
+                                            <li><a class="nav-link active" data-bs-toggle="tab" href="#layout-4-grid"><img src="{% static 'images/icon/bkg_grid.png' %}" alt=""></a></li>
+                                            <li><a class="nav-link" data-bs-toggle="tab" href="#layout-list"><img src="{% static 'images/icon/bkg_list.png' %}" alt=""></a></li>
+                                        </ul>
+                                    </div> <!-- End Sort tab Button -->
+
+
+
+                                    <!-- Start Page Amount -->
+                                    <div class="page-amount">
+                                        <span>Featured Products</span>
+                                    </div> <!-- End Page Amount -->
+
+                                </div> <!-- Start Sort Wrapper Box -->
+                            </div>
+                        </div>
+                    </div> <!-- End Section Content -->
+
+                    <!-- Start Tab Wrapper -->
+                    <div class="sort-product-tab-wrapper">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="tab-content tab-animate-zoom">
+                                        <!-- Start Grid View Product -->
+                                        <div class="tab-pane active show sort-layout-single" id="layout-4-grid">
+                                            <div class="row">
+
+                                             {% for products in product %}
+                                                <div class="col-xl-4 col-lg-4 col-sm-6 col-12">
+                                                    <!-- Start Product Defautlt Single -->
+                                                    <div class="product-default-single border-around" data-aos="fade-up"  data-aos-delay="200" >
+                                                        <div class="product-img-warp">
+                                                            <a href="{{products.get_url}}" class="product-default-img-link">
+                                                                <img src="{{ products.images.url }}" alt="{{ products.product_name }}" class="product-default-img img-fluid">
+                                                            </a>
+                                                            <div class="product-action-icon-link">
+                                                                 <span class="ratings">
+                                                            <div class="raising-star">
+                                    <!--                                     less than 0.5 show empty star else if greater than or equal to 0.5 print half star, if none print full stars-->
+                                                                    <i class="fa fa-star{% if products.average_review < 0.5%}-o{%elif products.average_review >= 0.5 and products.average_review < 1 %}-half-o {% endif %}"></i>
+                                                                    <i class="fa fa-star{% if products.average_review < 1.5%}-o{%elif products.average_review >= 1.5 and products.average_review < 2 %}-half-o {% endif %}"></i>
+                                                                    <i class="fa fa-star{% if products.average_review < 2.5%}-o{%elif products.average_review >= 2.5 and products.average_review < 3 %}-half-o {% endif %}"></i>
+                                                                    <i class="fa fa-star{% if products.average_review < 3.5%}-o{%elif products.average_review >= 3.5 and products.average_review < 4 %}-half-o {% endif %}"></i>
+                                                                    <i class="fa fa-star{% if products.average_review < 4.5%}-o{%elif products.average_review >= 4.5 and products.average_review < 5 %}-half-o {% endif %}"></i>
+                                                                 </div>
+                                                        </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-default-content">
+                                                            <h6 class="product-default-link"><a href="{{products.get_url}}">{{ products.product_name }}</a></h6>
+                                                            <span class="product-default-price">{{ products.price|currency:request.session.currency }} {{ request.session.currency }}</span>
+                                                        </div>
+                                                    </div> <!-- End Product Defautlt Single -->
+                                                </div>
+                                            {% endfor %}
+
+                                            </div>
+                                        </div> <!-- End Grid View Product -->
+                                        <!-- Start List View Product -->
+                                        <div class="tab-pane sort-layout-single" id="layout-list">
+                                            <div class="row">
+
+                                             {% for products in product %}
+                                                <div class="col-12">
+                                                    <!-- Start Product Defautlt Single -->
+                                                    <div class="product-list-single border-around">
+                                                        <a href="{{products.get_url}}" class="product-list-img-link">
+                                                            <img src="{{ products.images.url }}" alt="{{ products.product_name }}" class="img-fluid">
+                                                        </a>
+                                                        <div class="product-list-content">
+                                                            <h5 class="product-list-link"><a href="{{products.get_url}}">{{ products.product_name }}</a></h5>
+                                                            <span class="product-list-price">{{ products.price|currency:request.session.currency }} {{ request.session.currency }}</span>
+                                                            <p>{{ products.description }}</p>
+                                                            <div class="product-action-icon-link-list">
+                                                                 <span class="ratings">
+                                                                 <div class="raising-star">
+                                    <!--                                     less than 0.5 show empty star else if greater than or equal to 0.5 print half star, if none print full stars-->
+                                                                    <i class="fa fa-star{% if products.average_review < 0.5%}-o{%elif products.average_review >= 0.5 and products.average_review < 1 %}-half-o {% endif %}"></i>
+                                                                    <i class="fa fa-star{% if products.average_review < 1.5%}-o{%elif products.average_review >= 1.5 and products.average_review < 2 %}-half-o {% endif %}"></i>
+                                                                    <i class="fa fa-star{% if products.average_review < 2.5%}-o{%elif products.average_review >= 2.5 and products.average_review < 3 %}-half-o {% endif %}"></i>
+                                                                    <i class="fa fa-star{% if products.average_review < 3.5%}-o{%elif products.average_review >= 3.5 and products.average_review < 4 %}-half-o {% endif %}"></i>
+                                                                    <i class="fa fa-star{% if products.average_review < 4.5%}-o{%elif products.average_review >= 4.5 and products.average_review < 5 %}-half-o {% endif %}"></i>
+                                                                 </div>
+                                                            </span>
+                                                            </div>
+                                                        </div>
+                                                    </div> <!-- End Product Defautlt Single -->
+                                                </div>
+                                            {% endfor %}
+                                            </div>
+                                        </div> <!-- End List View Product -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> <!-- End Tab Wrapper -->
+
+                    <!-- Start Pagination -->
+                    <div class="page-pagination text-center" data-aos="fade-up"  data-aos-delay="0">
+                         {% if product.has_other_pages %}
+                                <ul>
+                                    {% if product.has_previous %}
+                                    <li><a href="?page={{product.previous_page_number}}">Previous</a></li>
+                                    {% else %}
+                                    <li><a href="javascript:void()">Previous</a></li>
+                                    {% endif %}
+                                    {% for i in product.paginator.page_range %}
+                                        {% if product.number == i %}
+                                            <li><a class="active" href="#">{{ i }}</a></li>
+                                        {% else %}
+                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                        {% endif %}
+                                    {% endfor %}
+                                    {% if product.has_next %}
+                                    <li><a href="?page={{product.next_page_number}}">Next</a></li>
+                                    {% else %}
+                                    <li><a href="javascript:void()">Next</a></li>
+                                    {% endif %}
+                                </ul>
+                                {% endif %}
+                    </div> <!-- End Pagination -->
+                </div> <!-- End Shop Product Sorting Section  -->
+            </div>
+        </div>
+    </div> <!-- ...:::: End Shop Section:::... -->
+
+
+{% endblock %}

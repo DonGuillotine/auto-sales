@@ -1,0 +1,19 @@
+/*****************************
+Base - Animation
+*****************************/
+
+@keyframes wave-animate{
+    0%{
+        transform: scale(.3);
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 0;
+    }
+    
+    100%{
+        transform: scale(1.6);
+        opacity: .5;
+    }
+}

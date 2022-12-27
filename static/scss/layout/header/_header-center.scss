@@ -1,0 +1,49 @@
+/*Header Center Area*/
+.header-center{
+    padding: 30px 0;
+    border-top: 1px solid $borderColor;
+    border-bottom: 1px solid $borderColor;
+}
+
+.header-action-icon{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 15px;
+
+    & > li{
+        margin-right: 40px;
+        &:last-child{margin-right: 0;}
+    }
+
+    & > li > a{
+        position: relative;
+        font-size: 27px;
+        color: #333;
+        &:hover{
+            color: $themeColor;
+        }
+    }
+
+    & > li > a:hover .header-action-icon-item-count{
+        background: $themeColor;
+    }
+}
+
+
+.header-action-icon-item-count{
+    position: absolute;
+    top: 0;
+    right: -8px;
+    font-size: 10px;
+    display: inline-block;
+    background: #333;
+    color: $white;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    transition: $baseTransition;
+}
+
+

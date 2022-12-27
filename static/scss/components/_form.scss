@@ -1,0 +1,141 @@
+/*****************************
+Components - Form
+*****************************/
+
+.default-form-box{
+    label {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: block;
+        span {
+            color: $themeColor;
+            font-size: 16px;
+        }
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="date"],
+    textarea{
+        border: 1px solid $borderColor;
+        border-radius: 3px;
+        background: none;
+        height: 40px;
+        width: 100%;
+        padding: 0 20px;
+        color: $bodyColor;
+        &::placeholder{font-size: 14px;}
+        outline: none;
+        &:focus{
+            border-color: $themeColor;
+        }
+    }
+    textarea{
+        height: 200px;
+        padding: 20px;
+    }
+}
+
+.default-search-style{
+    position: relative;
+}
+
+.default-search-style-input-box{
+    padding: 10px 90px 10px 20px;
+    border-radius: 5px;
+    font-size: 13px;
+    box-shadow: none;
+    outline:none;
+
+}
+
+.default-search-style-input-btn{
+    padding: 10px 25px;
+    background-color: $themeColor;
+    border-radius: 0 5px 5px 0;
+    font-weight: 600;
+    color: $white;
+    transition: $baseTransition;
+    line-height: 1.6;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: 100%;
+    transform: translateY(-50%);
+
+    &:hover{
+        border-color: $headingColor;
+        background: $headingColor;
+    }
+    i{
+        color: $white;
+        font-size: 18px;
+    }
+}
+
+.mobile-search-style-input-box{
+    padding: 7px 12px;
+    border-radius: 5px 0 0 5px;
+    font-size: 14px;
+    box-shadow: none;
+    outline:none;
+}
+
+.mobile-search-style-input-btn{
+    padding: 7px 12px;
+    background-color: $themeColor;
+    border-radius: 0 5px 5px 0;
+    font-weight: 600;
+    transition: $baseTransition;
+    &:hover{
+        background: $bodyColor;
+    }
+    i{
+        color: $white;
+        font-size: 18px;
+    }
+}
+
+.checkbox-default{
+    line-height: 1;
+    & > span{
+        display: inline-block;
+        transform: translateX(35px);
+        text-transform: capitalize;
+        color: $bodyColor !important;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    input {
+        appearance: none;
+        position: relative;
+        line-height: 0;
+        &::after {
+            position: absolute;
+            content: "";
+            width: 20px;
+            height: 20px;
+            border: 1px solid $gray-300;
+            line-height: 20px;
+            text-align: center;
+        }
+        &:checked::after {
+            position: absolute;
+            content: "\f00c";
+            background: $themeColor;
+            border-color: $themeColor;
+            font-family: "FontAwesome";
+            color: $white;
+        }
+        span{font-size: 14px;}
+    }
+}
+
+.subscribe-form{
+    padding: 10px 150px 11px 20px;
+    box-shadow: none;
+    outline:none;
+}

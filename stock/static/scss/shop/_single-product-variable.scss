@@ -1,0 +1,119 @@
+.pro-details-color-size {
+	margin-top: 30px;
+	margin-bottom: 10px;
+	p{
+		font-weight: 500;
+		color: #090909;
+	}
+	.ml-30px{
+		margin-left: 30px;
+		@media #{$small-mobile} {
+			margin-left: 20px;
+		}
+	}
+	.shop-select {
+		border: 1px solid #d5d5d5;
+		margin-left: 10px;
+		border-radius: 5px;
+		height: 40px;
+		&.show {
+			height: 40px;
+			.nice-select {
+				max-width: 79px;
+				width: 79px;
+				padding-right: 10px;
+				@media #{$small-mobile} {
+					width: 70px;
+				}
+				&:after {
+					right: 10px;
+				}
+			}
+		}
+		.nice-select {
+			-webkit-tap-highlight-color: transparent;
+			background-color: transparent;
+			border-radius: 0px;
+			border: solid 1px transparent;
+			box-sizing: border-box;
+			clear: both;
+			cursor: pointer;
+			display: block;
+			float: left;
+			font-family: $body-font;
+			font-size: 16px;
+			font-weight: normal;
+			height: 40px;
+			line-height: 40px;
+			outline: none;
+			padding-left: 10px;
+			padding-right: 30px;
+			position: relative;
+			text-align: left !important;
+			-webkit-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			white-space: nowrap;
+			max-width: 162px;
+			width: 162px;
+			color: #090909;
+			display: flex;
+			align-items: center;
+			@media #{$small-mobile} {
+				width: 130px;
+			}
+			.current {
+				color: #090909;
+			}
+			&:after {
+				border: 0;
+				content: "\f107";
+				display: inline-block;
+				font-family: "FontAwesome";
+				height: auto;
+				margin-top: 0;
+				pointer-events: none;
+				position: absolute;
+				right: 20px;
+				top: auto;
+				transform-origin: 0% 0%;
+				transform: rotate(0deg);
+				transition: all 0.15s ease-in-out;
+				width: auto;
+				color: $theme-color;
+				font-size: 18px;
+			}
+			& .list {
+				background-color: #fff;
+				border-radius: 0px;
+				box-shadow: 0 0 0 1px rgba(68, 68, 68, 0.11);
+				box-sizing: border-box;
+				margin-top: 5px;
+				opacity: 0;
+				overflow: hidden;
+				padding: 0;
+				pointer-events: none;
+				position: absolute;
+				top: 100%;
+				left: 0;
+				transform-origin: 50% 0;
+				transform: scale(0.75) translate(-21px);
+				transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
+				z-index: 15;
+				width: 100%;
+				color: #090909;
+				font-size: 16px;
+			}
+			&.open {
+				& .list {
+					opacity: 1;
+					pointer-events: auto;
+					transform: scale(1) translate(0px);
+				}
+			}
+		}
+	}
+}

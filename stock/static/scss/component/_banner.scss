@@ -1,0 +1,449 @@
+/* Banner Area Style */
+.single-col {
+	flex: 0 0 auto;
+	width: 24.8%;
+	@media #{$tablet-device, $large-mobile} {
+		width: 100%;
+	}
+	.single-banner {
+		position: relative;
+		display: block;
+		overflow: hidden;
+		border-radius: 5px;
+		& img {
+			width: 100%;
+			transition: $baseTransition;
+		}
+		&:hover {
+			& img {
+				transform: scale(1.1) rotate(3deg);
+			}
+		}
+		.banner-content {
+			position: absolute;
+			top: 0;
+			left: 0;
+
+			display: flex;
+			flex-direction: column;
+			padding: 60px 30px;
+			width: 100%;
+			height: 100%;
+			line-height: 1;
+			justify-content: flex-end;
+			@media #{$desktop-device, $large-mobile} {
+				padding: 40px 30px;
+			}
+			@media #{$extra-small-mobile} {
+				padding: 40px 20px;
+			}
+			.category {
+				display: block;
+				font-size: 16px;
+				color: #414141;
+				font-weight: 500;
+				margin: 0 0 12px;
+				@media #{$extra-small-mobile} {
+					margin: 0 0 5px;
+				}
+			}
+			.title {
+				font-size: 30px;
+				color: #424242;
+				font-weight: 500;
+				text-transform: capitalize;
+				display: block;
+				margin: 0 0 28px;
+				line-height: 43px;
+				@media #{$desktop-device} {
+					font-size: 24px;
+					line-height: 36px;
+					margin: 0 0 20px;
+				}
+				@media #{$extra-small-mobile} {
+					font-size: 24px;
+					margin: 0 0 15px;
+					line-height: 32px;
+				}
+			}
+			.shop-link {
+				width: 120px;
+				height: 40px;
+				font-size: 14px;
+			}
+		}
+	}
+	&.center-col {
+		flex: 0 0 auto;
+		width: 50.3%;
+		@media #{$tablet-device, $large-mobile} {
+			width: 100%;
+			margin: 30px 0;
+		}
+		.banner-content {
+			@media #{$extra-small-mobile} {
+				padding: 12px 20px;
+			}
+			.title {
+			}
+		}
+	}
+}
+
+.plr-15px {
+	padding: 0 15px;
+	@media #{$extra-small-mobile} {
+		padding: 0;
+	}
+}
+.banner-area-2 {
+	.single-banner {
+		position: relative;
+		overflow: hidden;
+		border-radius: 0;
+		&.nth-child-1 {
+			border-radius: 20px 0px 0px 20px;
+			@media #{$large-mobile} {
+				border-radius: 20px;
+			}
+		}
+		&.nth-child-2 {
+			border-radius: 0px 20px 0px 0px;
+			@media #{$large-mobile} {
+				border-radius: 20px;
+			}
+		}
+		&.nth-child-3 {
+			border-radius: 0px 0px 20px 0px;
+			@media #{$large-mobile} {
+				border-radius: 20px;
+			}
+		}
+		img {
+			max-width: 100%;
+			width: 100%;
+			transition: $baseTransition;
+		}
+		.banner-content {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			&.nth-child-1 {
+				align-items: center;
+			}
+			&.nth-child-2 {
+				left: auto;
+				padding-right: 70px;
+				@media #{$desktop-device} {
+					padding-right: 40px;
+				}
+				@media #{$tablet-device} {
+					padding-right: 20px;
+				}
+				@media #{$extra-small-mobile} {
+					padding-right: 20px;
+				}
+				.category {
+					color: #414141;
+				}
+				.title {
+					color: #424242;
+					font-size: 30px;
+					line-height: 43px;
+					font-weight: 500;
+					margin: 0 0 10px;
+					@media #{$tablet-device} {
+						font-size: 20px;
+						line-height: 30px;
+						margin: 0 0 5px;
+					}
+					@media #{$extra-small-mobile} {
+						font-size: 20px;
+						line-height: 28px;
+						margin: 0 0 0px;
+					}
+				}
+			}
+			&.nth-child-3 {
+				align-items: flex-start;
+				padding-left: 50px;
+				@media #{$desktop-device} {
+					padding-left: 30px;
+				}
+				@media #{$tablet-device, $extra-small-mobile} {
+					padding-left: 20px;
+				}
+				.category {
+					color: #414141;
+				}
+				.title {
+					color: #424242;
+					font-size: 30px;
+					line-height: 43px;
+					font-weight: 500;
+					margin: 0 0 10px;
+					@media #{$tablet-device} {
+						font-size: 20px;
+						line-height: 30px;
+						margin: 0 0 5px;
+					}
+					@media #{$extra-small-mobile} {
+						font-size: 20px;
+						line-height: 28px;
+						margin: 0 0 0px;
+					}
+				}
+			}
+			@media #{$laptop-device} {
+			}
+			@media #{$desktop-device} {
+			}
+
+			@media #{$extra-small-mobile} {
+			}
+			.category {
+				display: block;
+				color: $white;
+				font-size: 16px;
+				font-weight: 500;
+				margin: 0 0 3px;
+			}
+			.title {
+				color: $white;
+				font-size: 36px;
+				line-height: 46px;
+				font-weight: 500;
+				margin: 0 0 10px;
+				@media #{$tablet-device} {
+					font-size: 24px;
+					line-height: 36px;
+					margin: 0 0 5px;
+				}
+				@media #{$desktop-device} {
+				}
+				@media #{$extra-small-mobile} {
+				}
+			}
+			.shop-link {
+				font-size: 14px;
+				width: 120px;
+				height: 40px;
+				margin: 21px 0 0;
+				@media #{$desktop-device} {
+					margin: 15px 0 0;
+				}
+				@media #{$tablet-device} {
+					margin: 10px 0 0;
+				}
+				@media #{$extra-small-mobile} {
+					margin: 15px 0 0;
+					font-size: 12px;
+					width: 100px;
+					height: 35px;
+				}
+			}
+		}
+		&:hover {
+			& img {
+				transform: scale(1.1) rotate(3deg);
+			}
+		}
+	}
+}
+
+.banner-area-3 {
+	.single-banner {
+		position: relative;
+		overflow: hidden;
+		border-radius: 0;
+		img {
+			max-width: 100%;
+			width: 100%;
+			transition: $baseTransition;
+		}
+		.banner-content {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: auto;
+			right: 40px;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			@media #{$laptop-device} {
+			}
+			@media #{$desktop-device} {
+			}
+
+			@media #{$extra-small-mobile} {
+			}
+			.category {
+				display: flex;
+				color: $white;
+				font-size: 16px;
+				font-weight: 500;
+				margin: 0 0 15px;
+				background-image: url(/assets/images/banner/sticker-bg.png);
+				width: 80px;
+				height: 32px;
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-position: center;
+				flex-direction: column;
+				padding-left: 12px;
+				justify-content: center;
+			}
+			.title {
+				color: #424242;
+				font-size: 30px;
+				line-height: 43px;
+				font-weight: 500;
+				margin: 0 0 10px;
+				@media #{$tablet-device} {
+					font-size: 24px;
+					line-height: 36px;
+					margin: 0 0 5px;
+				}
+				@media #{$small-mobile} {
+					font-size: 24px;
+					line-height: 34px;
+				}
+				@media #{$extra-small-mobile} {
+					font-size: 20px;
+					line-height: 28px;
+					margin: 0 0 5px;
+				}
+			}
+			.shop-link {
+				font-size: 14px;
+				width: 120px;
+				height: 40px;
+				margin: 21px 0 0;
+				@media #{$desktop-device} {
+					margin: 15px 0 0;
+				}
+				@media #{$tablet-device} {
+					margin: 10px 0 0;
+				}
+				@media #{$extra-small-mobile} {
+					margin: 15px 0 0;
+					font-size: 12px;
+					width: 100px;
+					height: 35px;
+				}
+			}
+		}
+		&:hover {
+			& img {
+				transform: scale(1.1) rotate(3deg);
+			}
+		}
+	}
+}
+
+// Slider Banner
+.slider-banner {
+	.single-banner {
+		position: relative;
+		overflow: hidden;
+		border-radius: 0;
+		img {
+			max-width: 100%;
+			width: 100%;
+			transition: $baseTransition;
+			@media #{$desktop-device} {
+				height: 237.5px;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+		.banner-content {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 40px;
+			right: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			@media #{$laptop-device} {
+			}
+			@media #{$desktop-device} {
+			}
+
+			@media #{$extra-small-mobile} {
+			}
+			.category {
+				display: block;
+				color: $white;
+				font-size: 16px;
+				font-weight: 400;
+				margin: 0 0 3px;
+			}
+			.title {
+				color: #424242;
+				font-size: 30px;
+				line-height: 38px;
+				font-weight: 400;
+				margin: 0 0 0px;
+				@media #{$tablet-device} {
+					font-size: 24px;
+					line-height: 36px;
+					margin: 0 0 5px;
+				}
+				@media #{$desktop-device} {
+				}
+				@media #{$extra-small-mobile} {
+				}
+			}
+			.shop-link {
+				font-size: 14px;
+				width: 120px;
+				height: 40px;
+				margin: 21px 0 0;
+				@media #{$desktop-device} {
+					margin: 15px 0 0;
+				}
+				@media #{$tablet-device} {
+					margin: 10px 0 0;
+				}
+				@media #{$extra-small-mobile} {
+					margin: 15px 0 0;
+					font-size: 12px;
+					width: 100px;
+					height: 35px;
+				}
+			}
+		}
+		&:hover {
+			& img {
+				transform: scale(1.1) rotate(3deg);
+			}
+		}
+	}
+	.responsive-flex {
+		@media #{$tablet-device} {
+			display: flex;
+			padding: 0;
+		}
+		.single-banner {
+			@media #{$tablet-device} {
+				margin-top: 30px;
+				padding: 0 15px;
+			}
+			img {
+				@media #{$tablet-device, $large-mobile} {
+					transform: none;
+				}
+			}
+			@media #{$large-mobile} {
+				margin-top: 30px;
+			}
+		}
+	}
+}

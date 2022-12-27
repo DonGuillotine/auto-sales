@@ -1,0 +1,145 @@
+
+// Product Details Gallery Area
+.product-details-gallery-area{
+    margin-bottom: 60px;
+}
+.product-large-image-horaizontal,
+.product-large-image-vertical{
+    overflow: hidden;
+    border: 1px solid $borderColor;
+    img{
+        width: 100%;
+    }
+}
+.product-large-image-single-slider{
+    img{
+        width: 100%;
+        border: 1px solid $borderColor;
+        position: relative;
+    }
+
+    &:hover .gallery-nav{
+        visibility: visible;
+        opacity: 1;
+    }
+
+    .slick-list{
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .slick-slide{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+.product-image-thumb{
+    position: relative;
+    img{
+        border: 1px solid $borderColor;
+    }
+
+    &.product-image-thumb-horizontal{
+        margin-top: 15px;
+        margin-left: 60px;
+        margin-right: 60px;
+
+        .slick-list{
+            margin-left: -7.5px;
+            margin-right: -7.5px;
+        }
+        .slick-slide{
+            margin-left: 7.5px;
+            margin-right: 7.5px;
+        }
+    }
+
+    &.product-image-thumb-vertical {
+        width: 20%;
+
+        .slick-list{
+            margin-top: -7.5px;
+            margin-bottom: -7.5px;
+        }
+        .slick-slide{
+            margin-top: 7.5px;
+            margin-bottom: 7.5px;
+        }
+    }
+
+    &:hover .gallery-nav{
+        visibility: visible;
+        opacity: 1;
+    }
+    
+}
+
+.gallery-nav{
+    z-index: 9;
+    width: 30px;
+    height: 30px;
+    background: $gray-200;
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+    transition: $baseTransition;
+    &:hover{
+        background: $themeColor;
+        color: $white;
+    }
+}
+
+.gallery-nav-horizontal {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.gallery-nav-vertical {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gallery-nav-horizontal-left {
+    left: 0;
+    
+}
+.gallery-nav-horizontal-right {
+    right: 0;
+}
+.gallery-nav-vertical-up {
+    top: 0;
+    
+}
+.gallery-nav-vertical-down {
+   bottom: 0;
+}
+
+.product-large-image-vertical {
+    width: 80%;
+}
+
+// Gallery 
+
+.product-image-gallery-single {
+    width: calc(50% - 20px);
+    overflow: hidden;
+    float: left;
+}
+
+.product-image-gallery-single img {
+    width: 100%;
+    border: 1px solid  $borderColor;
+}
+
+// Sticky
+.product-image-sticky-single {
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.product-image-sticky-single img {
+    max-width: 100%;
+    border: 1px solid $borderColor;
+}

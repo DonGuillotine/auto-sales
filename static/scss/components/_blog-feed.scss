@@ -1,0 +1,74 @@
+/*****************************
+Components - Blog Feed
+*****************************/
+.blog-feed-wrapper{
+    margin-bottom: -30px;
+    
+    @include breakpoint(small){ margin-bottom: -30px;}
+    @include breakpoint(large){ margin-bottom: -30px;}
+}
+
+.blog-feed-wrapper > .container > .row > .col-12{
+    margin-bottom: 30px;
+
+    @include breakpoint(medium){
+        margin-bottom: 30px;
+    }
+} 
+
+.blog-feed-single {
+    background-color: rgb(246, 246, 246);
+    height: 100%;
+}
+
+.blog-feed-content{
+    background: #f6f6f6;
+    padding: 25px 30px 25px 30px;
+}
+
+.blog-feed-img-link{
+    overflow: hidden;
+    display: block;
+}
+
+.blog-feed-img{
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    transform: scale(1);
+    transition: $baseTransition;
+}
+
+.blog-feed-post-meta{
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: $black;
+    margin-bottom: 20px;
+}
+
+
+.blog-feed-post-meta-author,
+.blog-feed-post-meta-date,
+.blog-feed-link{
+    font-weight: 400;
+    color: #626262;
+    transition: $baseTransition;
+    &:hover{
+        color: $themeColor;
+    }
+}
+
+.blog-feed-link a{
+    font-size: 20px;
+    margin-top: -5px;
+    font-weight: 600;
+    display: block;
+    color: #343434;
+    font-family: $secondery-font;
+    line-height: 1.6;
+
+    &:hover{
+        color: $themeColor;
+    }
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="robots" content="index, follow" />
+    <title>Dapperautoparts - Dealer in original motor parts direct from the factory.</title>
+    <meta name="description" content="Dapperautoparts - Dealer in original motor parts direct from the factory." />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Add site Favicon -->
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/DonGuillotine/aments/assets/images/icon/favicon.ico" type="image/png">
+
+   <!-- ::::::::::::::All CSS Files here :::::::::::::: -->
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/DonGuillotine/aments/assets/css/vendor/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/DonGuillotine/aments/assets/css/vendor/plaza-icon.css">
+    <link rel="stylesheet" href="{% static 'css/vendor/jquery-uix.min.css' %}">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static 'css/plugins/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/aos.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/nice-selectx.css' %}">
+    <link rel="stylesheet" href="{% static 'css/plugins/venoboxx.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}" />
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'css/stylex.css' %}">
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.4/dist/sweetalert2.min.css" />
+     <!-- Include the PayPal JavaScript SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=Aefq0LpPXTAPXcvvQtzIOEsgGaGTRRRSVZpqWW8HI2_SRs8jPeWOJ3CjJlmov8VkJAyz_MEUc7zbRVHr&currency=USD"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7250QRZ7FN"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-7250QRZ7FN');
+    </script>
+
+<style>
+    button.swal2-confirm a {
+    color: white;
+}
+
+button.swal2-confirm {
+    margin-left: 15px;
+}
+button.swal2-cancel {
+    margin-right: 15px;
+}
+.widget-header a {
+    color: #343a40;
+}
+</style>
+
+
+
+<style>
+    .sidebar-widget-category .menu-link .nav-link .activate a{
+    color: #eaaa85 !important;
+    }
+</style>
+
+</head>
+
+<body>
+
+{% include 'includes/navbar.html' %}
+
+{% block content %}
+
+{% endblock %}
+
+{% include 'includes/footer.html' %}

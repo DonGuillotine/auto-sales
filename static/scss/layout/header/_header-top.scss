@@ -1,0 +1,86 @@
+/*Header Top Area*/
+.header-top{
+    font-size: 13px;
+}
+
+.header-user-menu{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    & > li{
+        margin-right: 40px;
+        &:last-child{margin-right: 0;}
+        position: relative;
+        &::after{
+            position: absolute;
+            content: "|";
+            top: 50%;
+            transform: translateY(-50%);
+            right: calc(0% - 20px);
+        }
+        &:last-child::after{
+            display: none;
+        }
+    }
+
+    & > li > a{
+        display: inline-block;
+        line-height: 46px;
+    }
+}
+
+
+.has-user-dropdown{
+    position: relative;
+    padding-right: 15px;
+    &::before{
+        content: "\f107";
+        font-family: "FontAwesome";
+        position: absolute;
+        top: calc(50%);
+        right: 0;
+        transform: translateY(-50%);
+        font-weight: 400;
+    }
+}
+
+.user-sub-menu{
+    position: absolute;
+    top: calc(100%);
+    transform: translateY(30px);
+    left: calc(0% - 20px);
+    right: auto;
+    padding: 10px 15px;
+    width: 160px;
+    background: $white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    transition: $baseTransition;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99;
+
+    & > li{
+        display: block;
+        border-bottom: 1px solid $borderColor;
+        padding: 5px 0;
+        &:last-child{border-bottom: none;}
+    }
+
+    & > li > a{
+        position: relative;
+        display: flex;
+        align-items: center;
+        &:hover{color:$themeColor;}
+    }
+}
+
+
+.user-sub-menu-in-icon{padding-right: 5px;}
+
+.has-user-dropdown:hover .user-sub-menu{
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0px);
+}
