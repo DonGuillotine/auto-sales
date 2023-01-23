@@ -20,3 +20,6 @@
 
 <h4>The customer's dashboard features includes an order history, the ability to edit profile and change password, check purchase history, manage account and track orders.</h4>
 <img src="https://user-images.githubusercontent.com/89584431/213959288-43ae408f-e011-43ef-958b-378f1363dfbb.gif">
+
+<h4>The Administrator's dashboard provides a centralized control panel for managing the platform, including monitoring customer activity, managing products, tracking orders, and managing user accounts.</h4>
+<img src="https://user-images.githubusercontent.com/89584431/213959587-b33975d1-07a8-44c0-b586-0e6226ad0403.png" width="600">
