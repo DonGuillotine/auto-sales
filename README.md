@@ -44,3 +44,47 @@ I welcome and appreciate contributions to this open-source project!
 
 ## Additional Resources
 - [Issue tracker](https://github.com/DonGuillotine/auto-sales/issues)
+
+
+## Django Installation Guide
+
+![Django Logo](https://www.djangoproject.com/m/img/logos/django-logo-negative.png)
+
+This guide will help you install Django for the first time on your local machine.
+
+## Prerequisites
+- Python3 installed on your machine
+
+## Installation
+1. Open the terminal and run the following command to install Django:
+
+```
+pip install django
+```
+
+2. Verify the installation by running the following command:
+```
+django-admin --version
+```
+
+You should see the version number of Django that you just installed.
+
+## Create a Django Project
+1. Open the terminal and navigate to the desired directory where you want to create your Django project.
+2. Run the following command to create a new Django project:
+```
+django-admin startproject projectname
+```
+Replace "projectname" with the name of your project.
+
+## Run the Development Server
+1. Navigate into the project directory using the following command:
+```
+cd projectname
+```
+2. Run the following command to start the development server:
+```
+python manage.py runserver
+```
+
+Your Django project is now up and running on your local machine. Open your web browser and go to http://127.0.0.1:8000/ to see the default Django page.
