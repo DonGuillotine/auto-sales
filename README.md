@@ -43,5 +43,4 @@ I welcome and appreciate contributions to this open-source project!
 3. I will review and merge your changes
 
 ## Additional Resources
-https://github.com/DonGuillotine/flutter-quiz-app/issues/new
 - [Issue tracker](https://github.com/DonGuillotine/auto-sales/issues)
