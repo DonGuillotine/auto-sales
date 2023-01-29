@@ -28,8 +28,8 @@
 I welcome and appreciate contributions to this open-source project!
 
 ## Getting Started
-1. Fork the repository on GitHub
-2. Clone the repository to your local machine
+1. Fork this repository on GitHub
+2. Clone this repository to your local machine
 3. Create a new branch for your changes
 
 ## Making Changes
