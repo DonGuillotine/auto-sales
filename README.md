@@ -24,7 +24,7 @@
 <h4>The Administrator's dashboard provides a centralized control panel for managing the platform, including monitoring customer activity, managing products, tracking orders, and managing user accounts.</h4>
 <img src="https://user-images.githubusercontent.com/89584431/213959587-b33975d1-07a8-44c0-b586-0e6226ad0403.png" width="600">
 
-## Contributing to Dapperautoparts
+## Contributing to Dapperautoparts.
 I welcome and appreciate contributions to this open-source project!
 
 ## Getting Started
