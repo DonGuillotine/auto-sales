@@ -87,4 +87,6 @@ cd projectname
 python manage.py runserver
 ```
 
-Your Django project is now up and running on your local machine. Open your web browser and go to http://127.0.0.1:8000/ to see the default Django page (: Happy Coding!
+Your Django project is now up and running on your local machine. Open your web browser and go to http://127.0.0.1:8000/ to see the default Django page.
+
+** Happy Coding! **
